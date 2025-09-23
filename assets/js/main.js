@@ -16,11 +16,6 @@
       $(".body-overlay").removeClass("opened");
     });
 
-    //>> Sticky Header
-    $windowOn.on("scroll", function () {
-      $("#header-sticky").toggleClass("sticky", $(this).scrollTop() > 250);
-    });
-
     //>> Image / Video Popup
     function initPopup(selector, type = "image", gallery = false) {
       if ($(selector).length) {

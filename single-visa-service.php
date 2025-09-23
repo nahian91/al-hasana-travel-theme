@@ -25,267 +25,184 @@
             <div class="news-details-area">
                 <div class="row g-5">
                     <div class="col-12 col-lg-8">
-                        
-                    </div>
-                    <div class="col-12 col-lg-4">
-                        <div class="main-sideber">
-                            <div class="single-sidebar-widget">
-                                <div class="wid-title">
-                                    <h4>Contact Us</h4>
-                                </div>
-                                <div class="news-widget-categories visa-contact">
-                                    <ul>
-                                        <li><i class="fa-regular fa-phone"></i> +88-01945111444</li>
-                                        <li><i class="fa-regular fa-envelope"></i>visa@obokash.com</li>
-                                        <li><i class="fa-regular fa-location-dot"></i>Tower A (5th Floor/South House), # 13, Bir Uttam Aminul Haque Sarak, Kemal Ataturk Ave, Dhaka 1213</li>  
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="single-sidebar-widget">
-                                <div class="wid-title">
-                                    <h4>Visa Services</h4>
-                                </div>
-                                <div class="recent-post-area">
-    <?php
-    $visa_services = new WP_Query(array(
-        'post_type'      => 'visa-service',
-        'posts_per_page' => 5,
-        'post_status'    => 'publish',
-    ));
 
-    if ($visa_services->have_posts()) :
-        while ($visa_services->have_posts()) : $visa_services->the_post(); 
-        
-        ?>
-            
-            <div class="recent-items">
-                <div class="recent-thumb visa-thumb">
-                    <a href="<?php the_permalink(); ?>">
-                        <?php 
-                        if (has_post_thumbnail()) {
-                            the_post_thumbnail('thumbnail', ['alt' => get_the_title()]);
-                        } else {
-                            echo '<img src="' . get_template_directory_uri() . '/assets/img/news/default.jpg" alt="default">';
-                        }
-                        ?>
-                    </a>
-                </div>
-                <div class="recent-content">
-                    <ul>
-                        <li>
-                            Visa
-                        </li>
-                    </ul>
-                    <h6>
-                        <a href="<?php the_permalink(); ?>">
-                            <?php the_title(); ?>
-                        </a>
-                    </h6>
-                </div>
-            </div>
+    <!-- Tour Thumbnail -->
+    <div class="details-thumb">
+        <?php the_post_thumbnail();?>
+    </div>
 
-        <?php endwhile;
-        wp_reset_postdata();
-    else :
-        echo '<p>No visa services found.</p>';
-    endif;
-    ?>
+    <div class="visa-details-content">
+        <?php the_content();?>
+    </div>
 </div>
+
+                    <div class="col-12 col-lg-4">
+                    <div class="main-sideber">
+
+                        <!-- Contact Widget -->
+                        <div class="single-sidebar-widget">
+                            <div class="wid-title"><h4>Contact Us</h4></div>
+                            <div class="news-widget-categories visa-contact">
+                                <?php 
+                                    $contact_phone  = get_field('contact_phone', 'option');
+                                    $contact_email  = get_field('contact_email', 'option');
+                                    $contact_address = get_field('contact_address', 'option');
+                                ?>
+                                <ul>
+                                    <?php if (!empty($contact_phone)) : ?>
+                                        <li><i class="fa-regular fa-phone"></i> <?php echo esc_html($contact_phone); ?></li>
+                                    <?php endif; ?>
+
+                                    <?php if (!empty($contact_email)) : ?>
+                                        <li><i class="fa-regular fa-envelope"></i> <?php echo esc_html($contact_email); ?></li>
+                                    <?php endif; ?>
+
+                                    <?php if (!empty($contact_address)) : ?>
+                                        <li><i class="fa-regular fa-location-dot"></i> <?php echo esc_html($contact_address); ?></li>
+                                    <?php endif; ?>
+                                </ul>
                             </div>
-                            <div class="single-sidebar-widget">
-                                <div class="wid-title">
-                                    <h4>Tour Packages</h4>
-                                </div>
-                                <div class="recent-post-area">
+
+                        </div>
+
+                        <!-- Visa Services -->
+                        <div class="single-sidebar-widget">
+                            <div class="wid-title"><h4>Visa Services</h4></div>
+                            <div class="recent-post-area">
+                                <?php
+                                $visa_services = new WP_Query(array(
+                                    'post_type'      => 'visa-service',
+                                    'posts_per_page' => 5,
+                                    'post_status'    => 'publish',
+                                ));
+                                if ($visa_services->have_posts()) :
+                                    while ($visa_services->have_posts()) : $visa_services->the_post(); ?>
                                     <div class="recent-items">
-                                        <div class="recent-thumb">
-                                            <img src="assets/img/news/pp1.jpg" alt="img">
+                                        <div class="recent-thumb visa-thumb">
+                                            <a href="<?php the_permalink(); ?>">
+                                                <?php if (has_post_thumbnail()) {
+                                                    the_post_thumbnail('thumbnail', ['alt' => get_the_title()]);
+                                                } else {
+                                                    echo '<img src="' . get_template_directory_uri() . '/assets/img/news/default.jpg" alt="default">';
+                                                } ?>
+                                            </a>
                                         </div>
                                         <div class="recent-content">
-                                            <ul>
-                                                <li>
-                                                    <i class="fa-regular fa-calendar-days"></i>
-                                                    14 Feb, 2024
-                                                </li>
-                                            </ul>
-                                            <h6>
-                                                <a href="news-details.html">
-                                                    Get Best Advertised Your
-                                                    Side Pocket.
-                                                </a>
-                                            </h6>
+                                            <ul><li>Visa</li></ul>
+                                            <h6><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
                                         </div>
                                     </div>
-                                    <div class="recent-items">
-                                        <div class="recent-thumb">
-                                            <img src="assets/img/news/pp2.jpg" alt="img">
-                                        </div>
-                                        <div class="recent-content">
-                                            <ul>
-                                                <li>
-                                                    <i class="fa-regular fa-calendar-days"></i>
-                                                    12 Mar, 2024
-                                                </li>
-                                            </ul>
-                                            <h6>
-                                                <a href="news-details.html">
-                                                    Supervisor Disapproved
-                                                    of Latest Work.
-                                                </a>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                    <div class="recent-items">
-                                        <div class="recent-thumb">
-                                            <img src="assets/img/news/pp3.jpg" alt="img">
-                                        </div>
-                                        <div class="recent-content">
-                                            <ul>
-                                                <li>
-                                                    <i class="fa-regular fa-calendar-days"></i>
-                                                    23 Feb, 2024
-                                                </li>
-                                            </ul>
-                                            <h6>
-                                                <a href="news-details.html">
-                                                    Sakura dreams and
-                                                    samurai tales.
-                                                </a>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-sidebar-widget">
-                                <div class="wid-title">
-                                    <h4>Hajj Packages</h4>
-                                </div>
-                                <div class="recent-post-area">
-                                    <div class="recent-items">
-                                        <div class="recent-thumb">
-                                            <img src="assets/img/news/pp1.jpg" alt="img">
-                                        </div>
-                                        <div class="recent-content">
-                                            <ul>
-                                                <li>
-                                                    <i class="fa-regular fa-calendar-days"></i>
-                                                    14 Feb, 2024
-                                                </li>
-                                            </ul>
-                                            <h6>
-                                                <a href="news-details.html">
-                                                    Get Best Advertised Your
-                                                    Side Pocket.
-                                                </a>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                    <div class="recent-items">
-                                        <div class="recent-thumb">
-                                            <img src="assets/img/news/pp2.jpg" alt="img">
-                                        </div>
-                                        <div class="recent-content">
-                                            <ul>
-                                                <li>
-                                                    <i class="fa-regular fa-calendar-days"></i>
-                                                    12 Mar, 2024
-                                                </li>
-                                            </ul>
-                                            <h6>
-                                                <a href="news-details.html">
-                                                    Supervisor Disapproved
-                                                    of Latest Work.
-                                                </a>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                    <div class="recent-items">
-                                        <div class="recent-thumb">
-                                            <img src="assets/img/news/pp3.jpg" alt="img">
-                                        </div>
-                                        <div class="recent-content">
-                                            <ul>
-                                                <li>
-                                                    <i class="fa-regular fa-calendar-days"></i>
-                                                    23 Feb, 2024
-                                                </li>
-                                            </ul>
-                                            <h6>
-                                                <a href="news-details.html">
-                                                    Sakura dreams and
-                                                    samurai tales.
-                                                </a>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-sidebar-widget">
-                                <div class="wid-title">
-                                    <h4>Umrah Packages</h4>
-                                </div>
-                                <div class="recent-post-area">
-                                    <div class="recent-items">
-                                        <div class="recent-thumb">
-                                            <img src="assets/img/news/pp1.jpg" alt="img">
-                                        </div>
-                                        <div class="recent-content">
-                                            <ul>
-                                                <li>
-                                                    <i class="fa-regular fa-calendar-days"></i>
-                                                    14 Feb, 2024
-                                                </li>
-                                            </ul>
-                                            <h6>
-                                                <a href="news-details.html">
-                                                    Get Best Advertised Your
-                                                    Side Pocket.
-                                                </a>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                    <div class="recent-items">
-                                        <div class="recent-thumb">
-                                            <img src="assets/img/news/pp2.jpg" alt="img">
-                                        </div>
-                                        <div class="recent-content">
-                                            <ul>
-                                                <li>
-                                                    <i class="fa-regular fa-calendar-days"></i>
-                                                    12 Mar, 2024
-                                                </li>
-                                            </ul>
-                                            <h6>
-                                                <a href="news-details.html">
-                                                    Supervisor Disapproved
-                                                    of Latest Work.
-                                                </a>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                    <div class="recent-items">
-                                        <div class="recent-thumb">
-                                            <img src="assets/img/news/pp3.jpg" alt="img">
-                                        </div>
-                                        <div class="recent-content">
-                                            <ul>
-                                                <li>
-                                                    <i class="fa-regular fa-calendar-days"></i>
-                                                    23 Feb, 2024
-                                                </li>
-                                            </ul>
-                                            <h6>
-                                                <a href="news-details.html">
-                                                    Sakura dreams and
-                                                    samurai tales.
-                                                </a>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php endwhile; wp_reset_postdata(); endif; ?>
                             </div>
                         </div>
+
+                        <!-- Tour Packages -->
+                        <div class="single-sidebar-widget">
+                            <div class="wid-title"><h4>Tour Packages</h4></div>
+                            <?php
+                            $tours = new WP_Query(array(
+                                'post_type'      => 'tour',
+                                'posts_per_page' => 3,
+                                'tax_query'      => array(
+                                    array(
+                                        'taxonomy' => 'tour_category',
+                                        'field'    => 'slug',
+                                        'terms'    => 'tour-packages',
+                                    ),
+                                ),
+                            ));
+                            if ($tours->have_posts()) : ?>
+                            <div class="recent-post-area">
+                                <?php while ($tours->have_posts()) : $tours->the_post(); ?>
+                                <div class="recent-items">
+                                    <div class="recent-thumb">
+                                        <?php if (has_post_thumbnail()) {
+                                            the_post_thumbnail('thumbnail', ['alt' => get_the_title()]);
+                                        } else {
+                                            echo '<img src="' . get_template_directory_uri() . '/assets/img/news/default.jpg" alt="default">';
+                                        } ?>
+                                    </div>
+                                    <div class="recent-content">
+                                        <h6><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
+                                    </div>
+                                </div>
+                                <?php endwhile; wp_reset_postdata(); ?>
+                            </div>
+                            <?php endif; ?>
+                        </div>
+
+                        <!-- Tour Packages -->
+                        <div class="single-sidebar-widget">
+                            <div class="wid-title"><h4>Hajj Packages</h4></div>
+                            <?php
+                            $tours = new WP_Query(array(
+                                'post_type'      => 'tour',
+                                'posts_per_page' => 3,
+                                'tax_query'      => array(
+                                    array(
+                                        'taxonomy' => 'tour_category',
+                                        'field'    => 'slug',
+                                        'terms'    => 'hajj-packages',
+                                    ),
+                                ),
+                            ));
+                            if ($tours->have_posts()) : ?>
+                            <div class="recent-post-area">
+                                <?php while ($tours->have_posts()) : $tours->the_post(); ?>
+                                <div class="recent-items">
+                                    <div class="recent-thumb">
+                                        <?php if (has_post_thumbnail()) {
+                                            the_post_thumbnail('thumbnail', ['alt' => get_the_title()]);
+                                        } else {
+                                            echo '<img src="' . get_template_directory_uri() . '/assets/img/news/default.jpg" alt="default">';
+                                        } ?>
+                                    </div>
+                                    <div class="recent-content">
+                                        <h6><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
+                                    </div>
+                                </div>
+                                <?php endwhile; wp_reset_postdata(); ?>
+                            </div>
+                            <?php endif; ?>
+                        </div>
+
+                        <!-- Tour Packages -->
+                        <div class="single-sidebar-widget">
+                            <div class="wid-title"><h4>Umrah Packages</h4></div>
+                            <?php
+                            $tours = new WP_Query(array(
+                                'post_type'      => 'tour',
+                                'posts_per_page' => 3,
+                                'tax_query'      => array(
+                                    array(
+                                        'taxonomy' => 'tour_category',
+                                        'field'    => 'slug',
+                                        'terms'    => 'umrah-packages',
+                                    ),
+                                ),
+                            ));
+                            if ($tours->have_posts()) : ?>
+                            <div class="recent-post-area">
+                                <?php while ($tours->have_posts()) : $tours->the_post(); ?>
+                                <div class="recent-items">
+                                    <div class="recent-thumb">
+                                        <?php if (has_post_thumbnail()) {
+                                            the_post_thumbnail('thumbnail', ['alt' => get_the_title()]);
+                                        } else {
+                                            echo '<img src="' . get_template_directory_uri() . '/assets/img/news/default.jpg" alt="default">';
+                                        } ?>
+                                    </div>
+                                    <div class="recent-content">
+                                        <h6><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
+                                    </div>
+                                </div>
+                                <?php endwhile; wp_reset_postdata(); ?>
+                            </div>
+                            <?php endif; ?>
+                        </div>
+
                     </div>
+                </div>
                 </div>
             </div>
         </div>

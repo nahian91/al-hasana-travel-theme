@@ -4333,7 +4333,7 @@ input.main-search-input::placeholder {
 }
 @media (max-width: 767px) {
   .section-title {
-    margin-bottom: 0;
+    margin-bottom: 30px;
   }
 }
 
@@ -4738,4 +4738,20 @@ input.main-search-input::placeholder {
 .best-price-section.mb-0 {
 	margin-top: 30px;
 }
+}
+
+
+.wp-block-heading h1, .wp-block-heading h2, .wp-block-heading h3 {
+  font-size: 13px;
+}
+.visa-details-content h1, .visa-details-content h2, .visa-details-content h3 {
+  font-size: 30px;
+  line-height: 40px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+.visa-details-content p {
+  color: #333 !important;
+  font-size: 16px;
+  line-height: 30px;
 }
