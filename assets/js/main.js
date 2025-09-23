@@ -6,7 +6,7 @@
 
   $documentOn.ready(function () {
 
-    $('#menu-menu-1').slicknav();
+    $('#menu-main-menu').slicknav();
 
     //>> Body Overlay
     $(".body-overlay").on("click", function () {
