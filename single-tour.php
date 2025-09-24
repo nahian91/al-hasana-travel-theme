@@ -258,6 +258,40 @@ $tour_remarks_list    = get_field('remarks_list');
 
                         </div>
 
+                        <div class="single-sidebar-widget">
+                            <div class="wid-title"><h4>Book Now</h4></div>
+                            <div class="comment-form-wrap">
+                                
+                            <form action="#" method="POST">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-clt">
+                                            <span>Full Name</span>
+                                            <input type="text" name="tour_phone" placeholder="Enter name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-clt">
+                                            <span>Phone</span>
+                                            <input type="text" name="tour_phone" placeholder="Enter phone">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-clt">
+                                            <span>Email</span>
+                                            <input type="email" name="tour_email" placeholder="Enter email">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-clt">
+                                            <button type="submit" class="theme-btn w-100">Submit Tour Request</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            </div>                    
+                        </div>
+
                         <!-- Visa Services -->
                         <div class="single-sidebar-widget">
                             <div class="wid-title"><h4>Visa Services</h4></div>

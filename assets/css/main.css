@@ -3258,11 +3258,14 @@ span {
 .hero-2 .hero-content h1 {
   color: var(--white);
   margin-bottom: 20px;
+  font-size: 60px;
 }
 .hero-2 .hero-content p {
   color: var(--white);
 }
-
+.hero-content .theme-btn a {
+	color: #fff;
+}
 .best-price-section {
   border: 1px solid var(--border);
   margin-left: 20px;
@@ -3276,7 +3279,11 @@ span {
     margin-top: 0;
   }
 }
-
+.hero-content p {
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 30px;
+}
 .hero-bottom .best-price-wrapper {
   display: flex;
   align-items: center;
@@ -4754,4 +4761,7 @@ input.main-search-input::placeholder {
   color: #333 !important;
   font-size: 16px;
   line-height: 30px;
+}
+.form-clt {
+	margin-bottom: 30px;
 }

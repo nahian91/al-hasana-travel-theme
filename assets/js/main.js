@@ -29,11 +29,6 @@
     initPopup(".img-popup2", "image", true);
     initPopup(".video-popup", "iframe");
 
-    //>> CounterUp
-    if ($(".count").length) {
-      $(".count").counterUp({ delay: 15, time: 4000 });
-    }
-
     //>> WOW Animation
     if (typeof WOW === "function") {
       new WOW().init();
