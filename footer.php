@@ -84,7 +84,7 @@
                         ?>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 ps-xl-5 wow fadeInUp wow" data-wow-delay=".6s">
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 wow fadeInUp wow" data-wow-delay=".6s">
                     <div class="single-widget-items">
                         <div class="widget-head">
                             <h4>Contact Us</h4>
@@ -97,7 +97,8 @@
                                 if( $footer_contact ) {
                                     $footer_phone   = $footer_contact['footer_phone'];
                                     $footer_email   = $footer_contact['footer_email'];
-                                    $footer_address   = $footer_contact['footer_address'];
+                                    $footer_address_1   = $footer_contact['footer_address_1'];
+                                    $footer_address_2   = $footer_contact['footer_address_2'];
                                 }
                             ?>
 
@@ -106,11 +107,23 @@
                                     <i class="fa-regular fa-location-dot"></i>
                                 </div>
                                 <div class="content">
-                                    <?php if( !empty($footer_address) ) : ?>
-                                        <h6><?php echo esc_html($footer_address); ?></h6>
+                                    <?php if( !empty($footer_address_1) ) : ?>
+                                        <h6><?php echo esc_html($footer_address_1); ?></h6>
                                     <?php endif; ?>
                                 </div>
                             </div>
+
+                            <div class="contact-items">
+                                <div class="icon">
+                                    <i class="fa-regular fa-location-dot"></i>
+                                </div>
+                                <div class="content">
+                                    <?php if( !empty($footer_address_2) ) : ?>
+                                        <h6><?php echo esc_html($footer_address_2); ?></h6>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+
                             <div class="contact-items">
                                 <div class="icon">
                                     <i class="fa-regular fa-envelope"></i>

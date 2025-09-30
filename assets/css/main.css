@@ -2016,6 +2016,7 @@ span {
   font-weight: 400;
   color: var(--white);
   line-height: 27px;
+  text-transform: inherit;
 }
 .footer-widget-wrapper-new .single-widget-items .contact-info .contact-items .content h6 a {
   color: var(--white);
@@ -3256,9 +3257,10 @@ span {
   margin-bottom: 10px;
 }
 .hero-2 .hero-content h1 {
-  color: var(--white);
-  margin-bottom: 20px;
-  font-size: 60px;
+	color: var(--white);
+	margin-bottom: 20px;
+	font-size: 45px;
+	line-height: 60px;
 }
 .hero-2 .hero-content p {
   color: var(--white);
@@ -3266,13 +3268,25 @@ span {
 .hero-content .theme-btn a {
 	color: #fff;
 }
+.comment-form-wrap.gtamca-form span {
+	color: #333;
+}
 .best-price-section {
-  border: 1px solid var(--border);
-  margin-left: 20px;
-  margin-right: 20px;
-  border-radius: 20px;
-  padding: 60px 30px;
-  background-color: var(--white);
+	border: 1px solid rgba(0, 0, 0, 0.06);
+	margin-left: 20px;
+	margin-right: 20px;
+	border-radius: 20px;
+	padding: 60px 30px;
+	background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+	backdrop-filter: blur(10px);
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+.comment-form-wrap.gtamca-form-single h4 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.comment-form-wrap.gtamca-form-single .form-clt span {
+  color: #333;
 }
 @media (max-width: 1199px) {
   .best-price-section {
@@ -3308,7 +3322,7 @@ span {
   background-color: transparent;
   border: 1px solid #E6E6E6;
   font-weight: 500;
-  color: var(--header);
+  color: var(--white);
   font-family: "Manrope", sans-serif;
   padding: 12px 15px;
   border-radius: 5px;
@@ -3393,7 +3407,7 @@ span {
   width: 100%;
   height: 100%;
   background-color: #333;
-  opacity: .8;
+  opacity: .36;
   left: 0;
   top: 0;
   z-index: -1;
@@ -3404,7 +3418,7 @@ span {
 }
 .comment-form-wrap .form-clt span {
   font-weight: 700;
-  color: var(--header);
+  color: var(--white);
   display: inline-block;
   margin-bottom: 20px;
 }
