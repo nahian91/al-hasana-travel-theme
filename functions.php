@@ -303,6 +303,37 @@ function alhasana_register_cpts() {
         'show_in_rest'      => true,
     ) );
 
+
+	/**
+     * ===== Airlines CPT =====
+     */
+    $airlines_labels = array(
+        'name'               => __( 'Airlines', 'alhasanatheme' ),
+        'singular_name'      => __( 'Airlines', 'alhasanatheme' ),
+        'menu_name'          => __( 'Airlines', 'alhasanatheme' ),
+        'add_new'            => __( 'Add New Airlines', 'alhasanatheme' ),
+        'add_new_item'       => __( 'Add New Airlines', 'alhasanatheme' ),
+        'edit_item'          => __( 'Edit Airlines', 'alhasanatheme' ),
+        'new_item'           => __( 'New Airlines', 'alhasanatheme' ),
+        'all_items'          => __( 'All Airlines', 'alhasanatheme' ),
+        'view_item'          => __( 'View Airlines', 'alhasanatheme' ),
+        'search_items'       => __( 'Search Airlines', 'alhasanatheme' ),
+        'not_found'          => __( 'No Visa Services found', 'alhasanatheme' ),
+        'not_found_in_trash' => __( 'No Visa Services found in Trash', 'alhasanatheme' ),
+    );
+
+    $airlines_args = array(
+        'labels'             => $airlines_labels,
+        'public'             => true,
+        'menu_icon'          => 'dashicons-id',
+        'supports'           => array( 'title', 'editor', 'thumbnail' ),
+        'has_archive'        => false,
+        'rewrite'            => array( 'slug' => 'visas-airlines' ),
+        'show_in_rest'       => true,
+    );
+    register_post_type( 'airlines', $airlines_args );
+
+
 }
 add_action( 'init', 'alhasana_register_cpts' );
 

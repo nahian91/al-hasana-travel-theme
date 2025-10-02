@@ -3272,13 +3272,13 @@ span {
 	color: #333;
 }
 .best-price-section {
-	border: 1px solid rgba(0, 0, 0, 0.06);
+	border: 1px solid rgba(0, 0, 0, 0.05);
 	margin-left: 20px;
 	margin-right: 20px;
 	border-radius: 20px;
 	padding: 60px 30px;
 	background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
-	backdrop-filter: blur(10px);
+	backdrop-filter: blur(4px);
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 .comment-form-wrap.gtamca-form-single h4 {
@@ -4777,5 +4777,22 @@ input.main-search-input::placeholder {
   line-height: 30px;
 }
 .form-clt {
+	margin-bottom: 30px;
+}
+
+.single-airline {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 9px;
+}
+.single-airline img {
+  max-width: 40px !important;
+}
+.airlines-content > h4 {
+	font-size: 30px;
+	line-height: 40px;
 	margin-bottom: 30px;
 }
