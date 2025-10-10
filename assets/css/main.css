@@ -785,14 +785,20 @@ span {
 }
 
 .destination-card-items {
-  margin-top: 30px;
-  border: 1px solid var(--border);
-  border-radius: 20px;
+	margin-bottom: 30px;
+	border: 1px solid var(--border);
+	border-radius: 20px;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 15px;
 }
 .destination-card-items .destination-image {
-  position: relative;
-  overflow: hidden;
-  border-radius: 20px;
+	position: relative;
+	overflow: hidden;
+	border-radius: 20px;
+	flex-basis: 30%;
 }
 .destination-card-items .destination-image img {
   width: 100%;
@@ -816,7 +822,8 @@ span {
   color: var(--white);
 }
 .destination-card-items .destination-content {
-  padding: 15px;
+	padding: 15px;
+	flex-basis: 65%;
 }
 .destination-card-items .destination-content .meta {
   display: flex;
@@ -885,6 +892,29 @@ span {
 .destination-card-items:hover .destination-image img {
   transform: scale(1.4);
 }
+
+.tour-filter-sidebar {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.tour-filter-sidebar h4 {
+    margin-bottom: 15px;
+}
+.filter-group {
+    margin-bottom: 20px;
+}
+.filter-group h6 {
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+.price-value {
+    font-size: 14px;
+    margin-top: 5px;
+    color: #333;
+}
+
 
 .popular-destination-section {
   position: relative;

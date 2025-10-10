@@ -126,6 +126,108 @@
             "new_lines": ""
         },
         {
+            "key": "field_68e8ca63a54f6",
+            "label": "Activities",
+            "name": "activities",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Boating": "Boating",
+                "City Tour": "City Tour",
+                "Cycling": "Cycling",
+                "Hiking": "Hiking",
+                "Jungle Safari": "Jungle Safari",
+                "Peak Climbing": "Peak Climbing",
+                "Rafting": "Rafting",
+                "Skiing": "Skiing",
+                "Trekking": "Trekking"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_68e8caf7a54f7",
+            "label": "Difficulties",
+            "name": "difficulties",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Easy": "Easy",
+                "Medium": "Medium",
+                "Hard": "Hard"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_68e8cb0ba54f8",
+            "label": "Trip Types",
+            "name": "trip_types",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Budget Travel": "Budget Travel",
+                "Child-friendly": "Child-friendly",
+                "Cultural": "Cultural",
+                "Dog-friendly": "Dog-friendly",
+                "High Altitude": "High Altitude",
+                "Home Stay": "Home Stay",
+                "Nature Friendly": "Nature Friendly",
+                "Volunteer Travel": "Volunteer Travel",
+                "Weekend Trips": "Weekend Trips"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
             "key": "field_68af4e207900a",
             "label": "Package Itinerary",
             "name": "",
@@ -738,5 +840,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1756323308
+    "modified": 1760086853
 }

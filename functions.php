@@ -356,3 +356,38 @@ add_filter( 'upload_mimes', function( $mimes ) {
     $mimes['svgz'] = 'image/svg+xml';
     return $mimes;
 } );
+
+
+// Add Tour Category Meta Box to Pages
+add_action('add_meta_boxes', function() {
+    add_meta_box(
+        'tour_category_meta_box',
+        __('Tour Category', 'textdomain'),
+        'render_tour_category_meta_box',
+        'page',
+        'side',
+        'default'
+    );
+});
+
+function render_tour_category_meta_box($post) {
+    wp_nonce_field('save_tour_category_meta_box', 'tour_category_nonce');
+    $selected = get_post_meta($post->ID, '_tour_category', true);
+    $terms = get_terms(['taxonomy' => 'tour_category', 'hide_empty' => false]);
+    echo '<select name="tour_category_field" style="width:100%">';
+    echo '<option value="">-- Select Tour Category --</option>';
+    foreach($terms as $term){
+        $sel = ($selected == $term->slug) ? 'selected' : '';
+        echo '<option value="'.esc_attr($term->slug).'" '.$sel.'>'.esc_html($term->name).'</option>';
+    }
+    echo '</select>';
+}
+
+add_action('save_post', function($post_id) {
+    if(!isset($_POST['tour_category_nonce'])) return;
+    if(!wp_verify_nonce($_POST['tour_category_nonce'], 'save_tour_category_meta_box')) return;
+    if(defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+    if(isset($_POST['tour_category_field'])){
+        update_post_meta($post_id, '_tour_category', sanitize_text_field($_POST['tour_category_field']));
+    }
+});

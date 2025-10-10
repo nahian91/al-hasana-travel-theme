@@ -88,6 +88,28 @@
       }
     }
     mousecursor();
+    
+document.addEventListener('DOMContentLoaded', function() {
+    const priceInput = document.getElementById('filter-price');
+    const priceDisplay = document.getElementById('price-display');
+    const applyBtn = document.getElementById('apply-filters');
+
+    priceInput.addEventListener('input', function() {
+        priceDisplay.textContent = this.value;
+    });
+
+    applyBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        // For now, just log filter data (later, we’ll handle AJAX)
+        const destination = document.getElementById('filter-destination').value;
+        const duration = document.getElementById('filter-duration').value;
+        const price = document.getElementById('filter-price').value;
+        console.log({ destination, duration, price });
+
+        // TODO: trigger AJAX filtering here
+    });
+});
+
 
     //>> Back To Top
     $windowOn.on('scroll', function () {
