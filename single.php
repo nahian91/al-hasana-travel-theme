@@ -17,13 +17,6 @@ get_header();
             <div class="row">
                 <div class="page-heading">
                     <h2><?php the_title();?></h2>
-                    <ul class="breadcrumb-list">
-                        <li>
-                            <a href="<?php echo site_url();?>">Home</a>
-                        </li>
-                        <li><i class="fa-regular fa-chevrons-right"></i></li>
-                        <li><?php the_title();?></li>
-                    </ul>
                 </div>
             </div>
         </div>
