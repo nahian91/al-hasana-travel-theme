@@ -192,150 +192,157 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 /**
- * Register CPTs: Tour & Visa Services
+ * Register CPTs: Tour, Visa Services, Airlines, Visa Processing
  */
 function alhasana_register_cpts() {
 
-    /**
-     * ===== TOUR CPT =====
-     */
+    // ===== TOUR CPT =====
     $tour_labels = array(
-        'name'               => __( 'Tours', 'alhasanatheme' ),
-        'singular_name'      => __( 'Tour', 'alhasanatheme' ),
-        'menu_name'          => __( 'Tours', 'alhasanatheme' ),
-        'add_new'            => __( 'Add New Tour', 'alhasanatheme' ),
-        'add_new_item'       => __( 'Add New Tour', 'alhasanatheme' ),
-        'edit_item'          => __( 'Edit Tour', 'alhasanatheme' ),
-        'new_item'           => __( 'New Tour', 'alhasanatheme' ),
-        'all_items'          => __( 'All Tours', 'alhasanatheme' ),
-        'view_item'          => __( 'View Tour', 'alhasanatheme' ),
-        'search_items'       => __( 'Search Tours', 'alhasanatheme' ),
-        'not_found'          => __( 'No Tours found', 'alhasanatheme' ),
+        'name' => __( 'Tours', 'alhasanatheme' ),
+        'singular_name' => __( 'Tour', 'alhasanatheme' ),
+        'menu_name' => __( 'Tours', 'alhasanatheme' ),
+        'add_new' => __( 'Add New Tour', 'alhasanatheme' ),
+        'add_new_item' => __( 'Add New Tour', 'alhasanatheme' ),
+        'edit_item' => __( 'Edit Tour', 'alhasanatheme' ),
+        'new_item' => __( 'New Tour', 'alhasanatheme' ),
+        'all_items' => __( 'All Tours', 'alhasanatheme' ),
+        'view_item' => __( 'View Tour', 'alhasanatheme' ),
+        'search_items' => __( 'Search Tours', 'alhasanatheme' ),
+        'not_found' => __( 'No Tours found', 'alhasanatheme' ),
         'not_found_in_trash' => __( 'No Tours found in Trash', 'alhasanatheme' ),
     );
+    register_post_type('tour', array(
+        'labels' => $tour_labels,
+        'public' => true,
+        'menu_icon' => 'dashicons-palmtree',
+        'supports' => array('title', 'editor', 'thumbnail', 'custom-fields'),
+        'has_archive' => true,
+        'rewrite' => array('slug' => 'tours'),
+        'show_in_rest' => true,
+    ));
 
-    $tour_args = array(
-        'labels'             => $tour_labels,
-        'public'             => true,
-        'menu_icon'          => 'dashicons-palmtree',
-        'supports'           => array( 'title', 'thumbnail', 'custom-fields' ),
-        'has_archive'        => true,
-        'rewrite'            => array( 'slug' => 'tours' ),
-        'show_in_rest'       => true,
-    );
-    register_post_type( 'tour', $tour_args );
+    // Tour Category
+    register_taxonomy('tour_category', 'tour', array(
+        'hierarchical' => true,
+        'labels' => array(
+            'name' => 'Tour Categories',
+            'singular_name' => 'Tour Category',
+            'search_items' => 'Search Tour Categories',
+            'all_items' => 'All Tour Categories',
+            'edit_item' => 'Edit Tour Category',
+            'update_item' => 'Update Tour Category',
+            'add_new_item' => 'Add New Tour Category',
+            'new_item_name' => 'New Tour Category',
+            'menu_name' => 'Tour Categories',
+        ),
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'rewrite' => array('slug' => 'tour-category'),
+        'show_in_rest' => true,
+    ));
 
-
-    /**
-     * ===== VISA SERVICES CPT =====
-     */
-    $visa_labels = array(
-        'name'               => __( 'Visa Services', 'alhasanatheme' ),
-        'singular_name'      => __( 'Visa Service', 'alhasanatheme' ),
-        'menu_name'          => __( 'Visa Services', 'alhasanatheme' ),
-        'add_new'            => __( 'Add New Visa', 'alhasanatheme' ),
-        'add_new_item'       => __( 'Add New Visa Service', 'alhasanatheme' ),
-        'edit_item'          => __( 'Edit Visa Service', 'alhasanatheme' ),
-        'new_item'           => __( 'New Visa Service', 'alhasanatheme' ),
-        'all_items'          => __( 'All Visa Services', 'alhasanatheme' ),
-        'view_item'          => __( 'View Visa Service', 'alhasanatheme' ),
-        'search_items'       => __( 'Search Visa Services', 'alhasanatheme' ),
-        'not_found'          => __( 'No Visa Services found', 'alhasanatheme' ),
+    // ===== VISA SERVICES CPT =====
+    $visa_service_labels = array(
+        'name' => __( 'Visa Services', 'alhasanatheme' ),
+        'singular_name' => __( 'Visa Service', 'alhasanatheme' ),
+        'menu_name' => __( 'Visa Services', 'alhasanatheme' ),
+        'add_new' => __( 'Add New Visa', 'alhasanatheme' ),
+        'add_new_item' => __( 'Add New Visa Service', 'alhasanatheme' ),
+        'edit_item' => __( 'Edit Visa Service', 'alhasanatheme' ),
+        'new_item' => __( 'New Visa Service', 'alhasanatheme' ),
+        'all_items' => __( 'All Visa Services', 'alhasanatheme' ),
+        'view_item' => __( 'View Visa Service', 'alhasanatheme' ),
+        'search_items' => __( 'Search Visa Services', 'alhasanatheme' ),
+        'not_found' => __( 'No Visa Services found', 'alhasanatheme' ),
         'not_found_in_trash' => __( 'No Visa Services found in Trash', 'alhasanatheme' ),
     );
+    register_post_type('visa-service', array(
+        'labels' => $visa_service_labels,
+        'public' => true,
+        'menu_icon' => 'dashicons-id',
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'),
+        'has_archive' => true,
+        'rewrite' => array('slug' => 'visa-services'),
+        'show_in_rest' => true,
+    ));
 
-    $visa_args = array(
-        'labels'             => $visa_labels,
-        'public'             => true,
-        'menu_icon'          => 'dashicons-id',
-        'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields' ),
-        'has_archive'        => true,
-        'rewrite'            => array( 'slug' => 'visas-service' ),
-        'show_in_rest'       => true,
-    );
-    register_post_type( 'visa-service', $visa_args );
-
-
-    /**
-     * ===== TOUR CATEGORY TAXONOMY =====
-     */
-    $tour_cat_labels = array(
-        'name'              => __( 'Tour Categories', 'alhasanatheme' ),
-        'singular_name'     => __( 'Tour Category', 'alhasanatheme' ),
-        'search_items'      => __( 'Search Tour Categories', 'alhasanatheme' ),
-        'all_items'         => __( 'All Tour Categories', 'alhasanatheme' ),
-        'edit_item'         => __( 'Edit Tour Category', 'alhasanatheme' ),
-        'update_item'       => __( 'Update Tour Category', 'alhasanatheme' ),
-        'add_new_item'      => __( 'Add New Tour Category', 'alhasanatheme' ),
-        'new_item_name'     => __( 'New Tour Category', 'alhasanatheme' ),
-        'menu_name'         => __( 'Tour Categories', 'alhasanatheme' ),
-    );
-    register_taxonomy( 'tour_category', array( 'tour' ), array(
-        'hierarchical'      => true,
-        'labels'            => $tour_cat_labels,
-        'show_ui'           => true,
+    // Visa Services Category
+    register_taxonomy('visa_service_category', 'visa-service', array(
+        'hierarchical' => true,
+        'labels' => array(
+            'name' => 'Visa Service Categories',
+            'singular_name' => 'Visa Service Category',
+        ),
+        'show_ui' => true,
         'show_admin_column' => true,
-        'rewrite'           => array( 'slug' => 'tour-category' ),
-        'show_in_rest'      => true,
-    ) );
+        'rewrite' => array('slug' => 'visa-service-category'),
+        'show_in_rest' => true,
+    ));
 
-
-    /**
-     * ===== VISA CATEGORY TAXONOMY =====
-     */
-    $visa_cat_labels = array(
-        'name'              => __( 'Visa Categories', 'alhasanatheme' ),
-        'singular_name'     => __( 'Visa Category', 'alhasanatheme' ),
-        'search_items'      => __( 'Search Visa Categories', 'alhasanatheme' ),
-        'all_items'         => __( 'All Visa Categories', 'alhasanatheme' ),
-        'edit_item'         => __( 'Edit Visa Category', 'alhasanatheme' ),
-        'update_item'       => __( 'Update Visa Category', 'alhasanatheme' ),
-        'add_new_item'      => __( 'Add New Visa Category', 'alhasanatheme' ),
-        'new_item_name'     => __( 'New Visa Category', 'alhasanatheme' ),
-        'menu_name'         => __( 'Visa Categories', 'alhasanatheme' ),
-    );
-    register_taxonomy( 'visa-category', array( 'visa-service' ), array(
-        'hierarchical'      => true,
-        'labels'            => $visa_cat_labels,
-        'show_ui'           => true,
-        'show_admin_column' => true,
-        'rewrite'           => array( 'slug' => 'visa-category' ),
-        'show_in_rest'      => true,
-    ) );
-
-
-	/**
-     * ===== Airlines CPT =====
-     */
+    // ===== AIRLINES CPT =====
     $airlines_labels = array(
-        'name'               => __( 'Airlines', 'alhasanatheme' ),
-        'singular_name'      => __( 'Airlines', 'alhasanatheme' ),
-        'menu_name'          => __( 'Airlines', 'alhasanatheme' ),
-        'add_new'            => __( 'Add New Airlines', 'alhasanatheme' ),
-        'add_new_item'       => __( 'Add New Airlines', 'alhasanatheme' ),
-        'edit_item'          => __( 'Edit Airlines', 'alhasanatheme' ),
-        'new_item'           => __( 'New Airlines', 'alhasanatheme' ),
-        'all_items'          => __( 'All Airlines', 'alhasanatheme' ),
-        'view_item'          => __( 'View Airlines', 'alhasanatheme' ),
-        'search_items'       => __( 'Search Airlines', 'alhasanatheme' ),
-        'not_found'          => __( 'No Visa Services found', 'alhasanatheme' ),
-        'not_found_in_trash' => __( 'No Visa Services found in Trash', 'alhasanatheme' ),
+        'name' => __( 'Airlines', 'alhasanatheme' ),
+        'singular_name' => __( 'Airline', 'alhasanatheme' ),
+        'menu_name' => __( 'Airlines', 'alhasanatheme' ),
+        'add_new' => __( 'Add New Airline', 'alhasanatheme' ),
+        'add_new_item' => __( 'Add New Airline', 'alhasanatheme' ),
+        'edit_item' => __( 'Edit Airline', 'alhasanatheme' ),
+        'new_item' => __( 'New Airline', 'alhasanatheme' ),
+        'all_items' => __( 'All Airlines', 'alhasanatheme' ),
+        'view_item' => __( 'View Airline', 'alhasanatheme' ),
+        'search_items' => __( 'Search Airlines', 'alhasanatheme' ),
+        'not_found' => __( 'No Airlines found', 'alhasanatheme' ),
+        'not_found_in_trash' => __( 'No Airlines found in Trash', 'alhasanatheme' ),
     );
+    register_post_type('airlines', array(
+        'labels' => $airlines_labels,
+        'public' => true,
+        'menu_icon' => 'dashicons-airplane',
+        'supports' => array('title', 'editor', 'thumbnail'),
+        'has_archive' => false,
+        'rewrite' => array('slug' => 'airlines'),
+        'show_in_rest' => true,
+    ));
 
-    $airlines_args = array(
-        'labels'             => $airlines_labels,
-        'public'             => true,
-        'menu_icon'          => 'dashicons-id',
-        'supports'           => array( 'title', 'editor', 'thumbnail' ),
-        'has_archive'        => false,
-        'rewrite'            => array( 'slug' => 'visas-airlines' ),
-        'show_in_rest'       => true,
+    // ===== VISA PROCESSING CPT =====
+    $visa_labels = array(
+        'name' => 'Visa Processing',
+        'singular_name' => 'Visa',
+        'menu_name' => 'Visa Processing',
+        'add_new' => 'Add New Visa',
+        'add_new_item' => 'Add New Visa',
+        'edit_item' => 'Edit Visa',
+        'new_item' => 'New Visa',
+        'all_items' => 'All Visa Requests',
+        'view_item' => 'View Visa',
+        'search_items' => 'Search Visa',
+        'not_found' => 'No Visa Requests found',
+        'not_found_in_trash' => 'No Visa Requests found in Trash',
     );
-    register_post_type( 'airlines', $airlines_args );
+    register_post_type('visa', array(
+        'labels' => $visa_labels,
+        'public' => true,
+        'has_archive' => true,
+        'supports' => ['title', 'custom-fields'],
+        'menu_icon' => 'dashicons-admin-site-alt3',
+        'show_in_rest' => true,
+    ));
 
-
+    // Visa Processing Category
+    register_taxonomy('visa_processing_category', 'visa', array(
+        'hierarchical' => true,
+        'labels' => array(
+            'name' => 'Visa Processing Categories',
+            'singular_name' => 'Visa Processing Category',
+        ),
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'rewrite' => array('slug' => 'visa-processing-category'),
+        'show_in_rest' => true,
+    ));
 }
-add_action( 'init', 'alhasana_register_cpts' );
+add_action('init', 'alhasana_register_cpts');
+
 
 // Save ACF JSON
 add_filter('acf/settings/save_json', function( $path ) {
