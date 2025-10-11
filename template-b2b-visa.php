@@ -53,32 +53,7 @@ if ( $visas ) :
                 <div class="card-body-b2b">
                     <h3><?php the_title(); ?></h3>
                     <div class="mb-2 text-center">
-                        <strong><?php echo $b2b_package_code;?></strong>
-                        <p class="text-muted mb-0"><?php echo $b2b_package_country; ?></p>
-                        <p class="text-muted mb-0"><?php echo $b2b_package_city; ?></p>
-                        <span class="text-muted">Duration: <?php echo $b2b_package_day; ?> Days / <?php echo $b2b_package_night; ?> Nights </span>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table table-striped table-hover table-sm">
-                            <thead class="bg-primary text-white">
-                                <tr>
-                                    <th class="py-1">Pax Qnt</th>
-                                    <th class="py-1 text-end">Per Person Price</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php 
-                                    foreach($b2b_package_pax as $pax) {
-                                        ?>
-                                    <tr>
-                                        <td class="py-1"><?php echo $pax['b2b_package_pax_number'];?></td>
-                                        <td class="py-1 text-end"><?php echo $pax['b2b_package_pax_amount'];?></td>
-                                    </tr>
-                                        <?php 
-                                    }
-                                ?>
-                            </tbody>
-                        </table>
+                        <strong><?php echo $b2b_visa_code;?></strong>
                     </div>
 
                     <div class="text-center"><a href="<?php the_permalink();?>">Click for details</a></div>
