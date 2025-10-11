@@ -323,7 +323,7 @@ function alhasana_register_cpts() {
         'labels' => $visa_labels,
         'public' => true,
         'has_archive' => true,
-        'supports' => ['title', 'custom-fields'],
+        'supports' => array('title', 'custom-fields'),
         'menu_icon' => 'dashicons-admin-site-alt3',
         'show_in_rest' => true,
     ));
@@ -340,9 +340,90 @@ function alhasana_register_cpts() {
         'rewrite' => array('slug' => 'visa-processing-category'),
         'show_in_rest' => true,
     ));
+
+    // ===== B2B PACKAGES CPT =====
+$b2b_package_labels = array(
+    'name' => __( 'B2B Packages', 'alhasanatheme' ),
+    'singular_name' => __( 'B2B Package', 'alhasanatheme' ),
+    'menu_name' => __( 'B2B Packages', 'alhasanatheme' ),
+    'add_new' => __( 'Add New Package', 'alhasanatheme' ),
+    'add_new_item' => __( 'Add New B2B Package', 'alhasanatheme' ),
+    'edit_item' => __( 'Edit B2B Package', 'alhasanatheme' ),
+    'new_item' => __( 'New B2B Package', 'alhasanatheme' ),
+    'all_items' => __( 'All B2B Packages', 'alhasanatheme' ),
+    'view_item' => __( 'View B2B Package', 'alhasanatheme' ),
+    'search_items' => __( 'Search B2B Packages', 'alhasanatheme' ),
+    'not_found' => __( 'No B2B Packages found', 'alhasanatheme' ),
+    'not_found_in_trash' => __( 'No B2B Packages found in Trash', 'alhasanatheme' ),
+);
+
+register_post_type('b2b-package', array(
+    'labels' => $b2b_package_labels,
+    'public' => true,                // Must be true for frontend archive & category links
+    'publicly_queryable' => true,
+    'show_ui' => true,
+    'menu_icon' => 'dashicons-portfolio',
+    'supports' => array('title', 'thumbnail', 'custom-fields'),
+    'has_archive' => true,
+    'rewrite' => array('slug' => 'b2b-packagest'),
+    'show_in_rest' => true,
+));
+
+// B2B Package Category
+register_taxonomy('b2b_package_category', 'b2b-package', array(
+    'hierarchical' => true,
+    'labels' => array(
+        'name' => 'B2B Package Categories',
+        'singular_name' => 'B2B Package Category',
+    ),
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'rewrite' => array('slug' => 'b2b-package-category'),
+    'show_in_rest' => true,
+));
+
+
+    // ===== B2B VISA CPT =====
+    $b2b_visa_labels = array(
+        'name' => __( 'B2B Visas', 'alhasanatheme' ),
+        'singular_name' => __( 'B2B Visa', 'alhasanatheme' ),
+        'menu_name' => __( 'B2B Visa', 'alhasanatheme' ),
+        'add_new' => __( 'Add New Visa', 'alhasanatheme' ),
+        'add_new_item' => __( 'Add New B2B Visa', 'alhasanatheme' ),
+        'edit_item' => __( 'Edit B2B Visa', 'alhasanatheme' ),
+        'new_item' => __( 'New B2B Visa', 'alhasanatheme' ),
+        'all_items' => __( 'All B2B Visas', 'alhasanatheme' ),
+        'view_item' => __( 'View B2B Visa', 'alhasanatheme' ),
+        'search_items' => __( 'Search B2B Visas', 'alhasanatheme' ),
+        'not_found' => __( 'No B2B Visas found', 'alhasanatheme' ),
+        'not_found_in_trash' => __( 'No B2B Visas found in Trash', 'alhasanatheme' ),
+    );
+    register_post_type('b2b-visa', array(
+        'labels' => $b2b_visa_labels,
+        'public' => false, // only for logged-in users
+        'publicly_queryable' => true,
+        'show_ui' => true,
+        'menu_icon' => 'dashicons-admin-network',
+        'supports' => array('title', 'custom-fields'),
+        'has_archive' => true,
+        'rewrite' => array('slug' => 'b2b-visa'),
+        'show_in_rest' => true,
+    ));
+
+    // B2B Visa Category
+    register_taxonomy('b2b_visa_category', 'b2b-visa', array(
+        'hierarchical' => true,
+        'labels' => array(
+            'name' => 'B2B Visa Categories',
+            'singular_name' => 'B2B Visa Category',
+        ),
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'rewrite' => array('slug' => 'b2b-visa-category'),
+        'show_in_rest' => true,
+    ));
 }
 add_action('init', 'alhasana_register_cpts');
-
 
 // Save ACF JSON
 add_filter('acf/settings/save_json', function( $path ) {
@@ -398,3 +479,12 @@ add_action('save_post', function($post_id) {
         update_post_meta($post_id, '_tour_category', sanitize_text_field($_POST['tour_category_field']));
     }
 });
+
+if (WP_DEBUG) {
+    add_action('send_headers', function() {
+        header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+        header('Pragma: no-cache');
+        header('Expires: 0');
+    });
+}
+

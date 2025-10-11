@@ -4856,3 +4856,107 @@ input.main-search-input::placeholder {
 	margin-bottom: 30px;
 }
 
+.card-body-b2b {
+  border: 1px solid #ddd;
+  text-align: center;
+  padding: 15px;
+  color: #333;
+}
+.card-body-b2b h3 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.card-body-b2b .bg-primary.text-white tr th {
+  background-color: #2c3593;
+  color: #fff;
+  margin-top: ;
+  padding: 10px;
+}
+.card-body-b2b h3 {
+  background-color: #2c3593;
+  color: #fff;
+  padding: 15px;
+  font-size: 18px;
+}
+.activities-details-wrapper .card-body-b2b {
+	text-align: left;
+}
+
+.best-price-section.dashboard-template {
+  background: transparent;
+  border: 1px solid #ddd;
+}
+
+.best-price-section.b2b-dashboard {
+  background: transparent;
+  border: 1px solid #ddd;
+}
+.best-price-section.b2b-dashboard .nav-item a {
+  color: #333 !important;
+}
+.best-price-section.b2b-dashboard .nav-item a.active {
+  color: #fff !important;
+}
+.best-price-section.b2b-dashboard .form-clt span {
+  color: #333;
+}
+.login-register-page.comment-form-wrap.login-form-single h2 {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+.login-register-page.comment-form-wrap.login-form-single .form-clt span {
+  color: #333;
+}
+/* User dropdown */
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.user-dropdown .dropdown-toggle {
+    cursor: pointer;
+    color: var(--header);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.user-dropdown .dropdown-toggle i {
+    font-size: 12px;
+}
+
+.user-dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 180px;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 999;
+    border-radius: 5px;
+}
+
+.user-dropdown .dropdown-menu li {
+    list-style: none;
+}
+
+.user-dropdown .dropdown-menu li a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.user-dropdown .dropdown-menu li a:hover {
+    background-color: var(--theme);
+    color: #fff;
+}
+
+/* Show dropdown on hover */
+.user-dropdown:hover .dropdown-menu {
+    display: block;
+}

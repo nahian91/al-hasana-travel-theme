@@ -93,6 +93,26 @@
                             <a href="tel:<?php echo esc_attr($phone); ?>"><?php echo esc_html($phone); ?></a>
                         </li>
                     <?php endif; ?>
+                    <li class="user-dropdown">
+<?php if ( is_user_logged_in() ) : 
+    $current_user = wp_get_current_user(); ?>
+    <a href="#" class="dropdown-toggle">
+        <?php echo esc_html( $current_user->display_name ); ?>
+    </a>
+    <ul class="dropdown-menu">
+        <li><a href="<?php echo esc_url( home_url('/dashboard/') ); ?>">Dashboard</a></li>
+        <li><a href="<?php echo esc_url( home_url('/b2b-package/') ); ?>">All Packages</a></li>
+        <li><a href="<?php echo esc_url( home_url('/b2b-visas/') ); ?>">All Visas</a></li>
+        <li><a href="<?php echo wp_logout_url( home_url('/') ); ?>">Logout</a></li>
+    </ul>
+<?php else : ?>
+    <a href="<?php echo home_url('/login/'); ?>">Login / Register</a>
+<?php endif; ?>
+</li>
+
+
+
+
                 </ul>
             </div>
         </div>

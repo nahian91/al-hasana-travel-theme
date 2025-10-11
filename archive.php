@@ -1,99 +1,168 @@
 <?php
 /**
- * The template for displaying archive pages
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package alhasanatheme
+ * Archive template for B2B Packages & B2B Visas
  */
-
 get_header();
+
+// Redirect guests to login
+if ( ! is_user_logged_in() ) {
+    wp_redirect( home_url('/login/') );
+    exit;
+}
+
+// Determine current post type
+$post_type = get_query_var('post_type');
+
+// Set page title, taxonomy, and ACF fields based on CPT
+if ($post_type === 'b2b-package') {
+    $page_title = 'B2B Packages';
+    $taxonomy   = 'b2b_package_category';
+    $fields = [
+        'code'    => 'b2b_package_code',
+        'city'    => 'b2b_package_city',
+        'country' => 'b2b_package_country',
+        'day'     => 'b2b_package_day',
+        'night'   => 'b2b_package_night',
+        'pax'     => 'b2b_package_pax',
+    ];
+} elseif ($post_type === 'b2b-visa') {
+    $page_title = 'B2B Visas';
+    $taxonomy   = 'b2b_visa_category';
+    $fields = [
+        'code'    => 'visa_code',
+        'city'    => 'visa_city',
+        'country' => 'visa_country',
+        'day'     => 'visa_duration',
+        'night'   => '', // Visas don’t have nights
+        'pax'     => 'visa_price_table',
+    ];
+} else {
+    $page_title = 'Items';
+    $taxonomy   = '';
+    $fields = [];
+}
 ?>
 
- <!-- breadcrumb-wrappe-Section Start -->
-        <section class="breadcrumb-wrapper fix bg-cover" style="background-image: url(<?php echo get_template_directory_uri();?>/assets/img/breadcrumb/breadcrumb.jpg);">
-            <div class="container">
-                <div class="row">
-                    <div class="page-heading">
-                        <h2><?php echo single_cat_title();?></h2>
-                        <ul class="breadcrumb-list">
-                            <li>
-                                <a href="<?php echo site_url();?>">Home</a>
-                            </li>
-                            <li><i class="fa-regular fa-chevrons-right"></i></li>
-                            <li><?php echo single_cat_title();?></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-		<section class="news-section section-padding fix">
+<!-- breadcrumb-wrapper Section Start -->
+<section class="breadcrumb-wrapper fix bg-cover"
+    style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/breadcrumb/breadcrumb.jpg);">
     <div class="container">
-        <div class="row g-4">
-            <?php
-            $args = array(
-                'post_type'      => 'post',
-                'posts_per_page' => 6, // Number of posts per page
-                'paged'          => get_query_var('paged') ? get_query_var('paged') : 1,
-            );
-            $loop = new WP_Query($args);
-
-            if ($loop->have_posts()) :
-                while ($loop->have_posts()) : $loop->the_post();
-            ?>
-                <div class="col-xl-4 col-md-6 col-lg-6 wow fadeInUp" data-wow-delay=".3s">
-                    <div class="news-card-items-3 mt-0">
-                        <div class="news-image">
-                            <?php if (has_post_thumbnail()) : ?>
-                                <a href="<?php the_permalink(); ?>">
-                                    <?php the_post_thumbnail('medium', ['alt' => get_the_title()]); ?>
-                                </a>
-                            <?php endif; ?>
-                        </div>
-                        <div class="news-content">
-                            <ul class="post-meta">
-                                <li class="post"><?php echo get_the_date('d'); ?><span><?php echo get_the_date('M'); ?></span></li>
-                                <li>
-                                    <i class="fa-regular fa-user"></i>
-                                    By <?php the_author(); ?>
-                                </li>
-                                <li>
-                                    <i class="fa-regular fa-tag"></i>
-                                    <?php the_category(', '); ?>
-                                </li>
-                            </ul>
-                            <h4>
-                                <a href="<?php the_permalink(); ?>">
-                                    <?php the_title(); ?>
-                                </a>
-                            </h4>
-							<?php the_excerpt();?>
-                            <a href="<?php the_permalink(); ?>" class="link-btn">Read More <i class="fa-sharp fa-regular fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            <?php endwhile; ?>
+        <div class="row">
+            <div class="page-heading">
+                <h2><?php echo esc_html($page_title); ?></h2>
+            </div>
         </div>
-
-        <!-- Pagination -->
-        <div class="page-nav-wrap text-center">
-            <?php
-            echo paginate_links(array(
-                'total'   => $loop->max_num_pages,
-                'current' => max(1, get_query_var('paged')),
-                'prev_text' => '<i class="fal fa-long-arrow-left"></i>',
-                'next_text' => '<i class="fal fa-long-arrow-right"></i>',
-            ));
-            ?>
-        </div>
-
-        <?php wp_reset_postdata(); ?>
-        <?php else : ?>
-            <p>No posts found.</p>
-        <?php endif; ?>
     </div>
-</section>	
+</section>
+
+<section class="activities-details-section fix section-padding">
+    <div class="container">
+        <div class="activities-details-wrapper">
+            <div class="row g-4 justify-content-center">
+                <!-- Main Content -->
+                <div class="col-lg-8">
+                    <div class="row">
 
 <?php
-get_footer();
+if ( have_posts() ) :
+    while ( have_posts() ) : the_post();
+        $code    = get_field($fields['code']);
+        $city    = get_field($fields['city']);
+        $country = get_field($fields['country']);
+        $day     = get_field($fields['day']);
+        $night   = $fields['night'] ? get_field($fields['night']) : '';
+        $pax     = get_field($fields['pax']);
+?>
+<div class="col-md-6 col-lg-4">
+    <div class="card-body-b2b">
+        <h3><?php the_title(); ?></h3>
+        <div class="mb-2 text-center">
+            <strong><?php echo esc_html($code); ?></strong>
+            <?php if($city): ?><p class="text-muted mb-0"><?php echo esc_html($city); ?></p><?php endif; ?>
+            <?php if($country): ?><p class="text-muted mb-0"><?php echo esc_html($country); ?></p><?php endif; ?>
+            <?php if($day): ?>
+                <span class="text-muted">
+                    Duration: <?php echo esc_html($day); ?>
+                    <?php if($night) echo ' / '.esc_html($night).' Nights'; ?>
+                </span>
+            <?php endif; ?>
+        </div>
+
+        <?php if( !empty($pax) && is_array($pax) ): ?>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover table-sm">
+                <thead class="bg-primary text-white">
+                    <tr>
+                        <th class="py-1">Pax Qnt</th>
+                        <th class="py-1 text-end">Per Person Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php foreach($pax as $row): ?>
+                    <tr>
+                        <td class="py-1"><?php echo esc_html($row['b2b_package_pax_number'] ?? $row['pax']); ?></td>
+                        <td class="py-1 text-end"><?php echo esc_html($row['b2b_package_pax_amount'] ?? $row['price']); ?></td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        <?php endif; ?>
+
+        <div class="text-center"><a href="<?php the_permalink();?>">Click for details</a></div>
+    </div>
+</div>
+
+<?php
+    endwhile;
+
+    the_posts_pagination([
+        'mid_size'  => 2,
+        'prev_text' => '<i class="fal fa-long-arrow-left"></i>',
+        'next_text' => '<i class="fal fa-long-arrow-right"></i>',
+    ]);
+else :
+    echo '<p>No items found.</p>';
+endif;
+?>
+
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="col-12 col-lg-4">
+                    <div class="main-sideber">
+                        <div class="single-sidebar-widget">
+                            <div class="wid-title"><h4><?php echo esc_html($page_title); ?> Categories</h4></div>
+                            <div class="news-widget-categories visa-contact">
+                                <ul>
+<?php
+if ($taxonomy) {
+    $terms = get_terms([
+        'taxonomy' => $taxonomy,
+        'hide_empty' => true,
+    ]);
+    if (!empty($terms) && !is_wp_error($terms)) {
+        foreach ($terms as $term) {
+            $term_link = get_term_link($term);
+            echo '<li><i class="fa-regular fa-folder"></i> ';
+            echo '<a href="'.esc_url($term_link).'">'.esc_html($term->name).'</a>';
+            echo ' ('.intval($term->count).')</li>';
+        }
+    } else {
+        echo '<li>No categories found.</li>';
+    }
+}
+?>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<?php get_footer(); ?>
