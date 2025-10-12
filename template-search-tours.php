@@ -51,7 +51,7 @@ $selected_destination = isset($_GET['tour_destination']) ? sanitize_text_field($
                     $price = get_field('price');
             ?>
                 <div class="col-md-4">
-                    <div class="destination-card-items mt-0">
+                    <div class="destination-card-items mt-0 tour-design">
                         <div class="destination-image">
                             <?php if(has_post_thumbnail()): the_post_thumbnail('full', ['alt'=>get_the_title()]);
                             else: ?>

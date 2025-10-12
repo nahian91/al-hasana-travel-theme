@@ -4982,3 +4982,19 @@ input.main-search-input::placeholder {
 	max-width: 100%;
 	height: auto;
 }
+
+.hotel-link a {
+  transition: .3s;
+}
+.hotel-link a:hover {
+  background-color: #0a1f24;
+  color: #fff;
+}
+
+
+.tour-design.destination-card-items .destination-image {
+  flex-basis: 100%;
+}
+.tour-design.destination-card-items .destination-content {
+  flex-basis: 100%;
+}

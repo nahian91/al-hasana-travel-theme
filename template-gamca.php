@@ -27,93 +27,7 @@ get_header();
 <form action="#" method="POST" enctype="multipart/form-data" id="tour-form">
     <div class="row g-3">
 
-        <!-- Full Name -->
-        <div class="col-md-4">
-            <div class="form-clt">
-                <span>Full Name</span>
-                <input type="text" name="tour_fullname" class="form-control" placeholder="Full Name" required>
-            </div>
-        </div>
-
-        <!-- DOB -->
-        <div class="col-md-4">
-            <div class="form-clt">
-                <span>Date of Birth</span>
-                <input type="date" name="tour_dob" class="form-control" required>
-            </div>
-        </div>
-
-        <!-- Gender -->
-        <div class="col-md-4">
-            <div class="form-clt">
-                <span>Gender</span>
-                <select name="tour_gender" class="form-control nice-select" required>
-                    <option value="">Select</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                </select>
-            </div>
-        </div>
-
-        <!-- Marital Status -->
-        <div class="col-md-4">
-            <div class="form-clt">
-                <span>Marital Status</span>
-                <select name="tour_marital" class="form-control nice-select" required>
-                    <option value="">Select</option>
-                    <option value="Single">Single</option>
-                    <option value="Married">Married</option>
-                </select>
-            </div>
-        </div>
-
-        <!-- Visa Type -->
-        <div class="col-md-4">
-            <div class="form-clt">
-                <span>Visa Type</span>
-                <select name="tour_visa" class="form-control nice-select" required>
-                    <option value="">Select</option>
-                    <option value="Work Visa">Work Visa</option>
-                    <option value="Family Visa">Family Visa</option>
-                </select>
-            </div>
-        </div>
-
-        <!-- Position Applied For -->
-        <div class="col-md-4">
-            <div class="form-clt">
-                <span>Position Applied For</span>
-                <select name="tour_position" class="form-control nice-select" required>
-                    <option value="">Select</option>
-                    <option value="Carpenter">Carpenter</option>
-                    <option value="Cashier">Cashier</option>
-                    <option value="Electrician">Electrician</option>
-                    <option value="Engineer">Engineer</option>
-                    <option value="Labour">Labour</option>
-                    <option value="Doctor">Doctor</option>
-                    <option value="Driver">Driver</option>
-                    <option value="Other">Other</option>
-                </select>
-            </div>
-        </div>
-
-        <!-- Phone -->
-        <div class="col-md-6">
-            <div class="form-clt">
-                <span>Phone</span>
-                <input type="text" name="tour_phone" class="form-control" placeholder="Phone" required>
-            </div>
-        </div>
-
-        <!-- Email -->
-        <div class="col-md-6">
-            <div class="form-clt">
-                <span>Email</span>
-                <input type="email" name="tour_email" class="form-control" placeholder="Email" required>
-            </div>
-        </div>
-
-        <!-- City -->
+    <!-- City -->
         <div class="col-md-6">
             <div class="form-clt">
                 <span>City (যে শহরে মেডিকেল দিবে)</span>
@@ -145,11 +59,77 @@ get_header();
             </div>
         </div>
 
+        <!-- Full Name -->
+        <div class="col-md-6">
+            <div class="form-clt">
+                <span>Full Name</span>
+                <input type="text" name="tour_fullname" class="form-control" placeholder="Full Name" required>
+            </div>
+        </div>
+
         <!-- Passport Number -->
         <div class="col-md-6">
             <div class="form-clt">
                 <span>Passport Number</span>
                 <input type="text" name="tour_passport" class="form-control" placeholder="E.g. A11112222" required>
+            </div>
+        </div>
+
+        <!-- Marital Status -->
+        <div class="col-md-6">
+            <div class="form-clt">
+                <span>Marital Status</span>
+                <select name="tour_marital" class="form-control nice-select" required>
+                    <option value="">Select</option>
+                    <option value="Single">Single</option>
+                    <option value="Married">Married</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Visa Type -->
+        <div class="col-md-6">
+            <div class="form-clt">
+                <span>Visa Type</span>
+                <select name="tour_visa" class="form-control nice-select" required>
+                    <option value="">Select</option>
+                    <option value="Work Visa">Work Visa</option>
+                    <option value="Family Visa">Family Visa</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Position Applied For -->
+        <div class="col-md-6">
+            <div class="form-clt">
+                <span>Position Applied For</span>
+                <select name="tour_position" class="form-control nice-select" required>
+                    <option value="">Select</option>
+                    <option value="Carpenter">Carpenter</option>
+                    <option value="Cashier">Cashier</option>
+                    <option value="Electrician">Electrician</option>
+                    <option value="Engineer">Engineer</option>
+                    <option value="Labour">Labour</option>
+                    <option value="Doctor">Doctor</option>
+                    <option value="Driver">Driver</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Phone -->
+        <div class="col-md-6">
+            <div class="form-clt">
+                <span>Mobile No.</span>
+                <input type="text" name="tour_phone" class="form-control" placeholder="Phone" required>
+            </div>
+        </div>
+
+        <!-- Email -->
+        <div class="col-md-6">
+            <div class="form-clt">
+                <span>Email</span>
+                <input type="email" name="tour_email" class="form-control" placeholder="Email" required>
             </div>
         </div>
 
@@ -188,7 +168,7 @@ get_header();
         <div class="col-md-6">
             <div class="form-clt">
                 <span>Mobile / Bank Number</span>
-                <input type="text" name="tour_payment_number" id="payment-number" class="form-control" placeholder="Enter Mobile/Bank Number" required>
+                <input type="text" name="tour_payment_number" id="payment-number" class="form-control" placeholder="Enter Mobile/Bank Number"  required>
             </div>
         </div>
 
@@ -202,7 +182,7 @@ get_header();
 
         <!-- Terms & Notice -->
         <div class="col-md-12">
-            <p class="text-danger">বিশেষ সতর্কতাঃ সাবমিট এর পূর্বে সকল তথ্য পুণরায় যাচাই করে নিন। ভুল তথ্য সাবমিট হলে gamcaslip.com কর্তৃপক্ষ দায়ী নয়।</p>
+            <p class="text-danger">বিশেষ সতর্কতাঃ সাবমিট এর পূর্বে সকল তথ্য পুণরায় যাচাই করে নিন। ভুল তথ্য সাবমিট হলে alhasanatravels.com কর্তৃপক্ষ দায়ী নয়।</p>
         </div>
 
         <!-- Submit -->
