@@ -4,10 +4,10 @@
     "fields": [
         {
             "key": "field_68d2e52a562fc",
-            "label": "",
-            "name": "",
+            "label": "Visa Service Details",
+            "name": "visa_service_details",
             "aria-label": "",
-            "type": "text",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -17,11 +17,11 @@
                 "id": ""
             },
             "default_value": "",
-            "maxlength": "",
             "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
         }
     ],
     "location": [
@@ -42,5 +42,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1758651704
+    "modified": 1760289189
 }

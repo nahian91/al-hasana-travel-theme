@@ -260,7 +260,7 @@ function alhasana_register_cpts() {
         'labels' => $visa_service_labels,
         'public' => true,
         'menu_icon' => 'dashicons-id',
-        'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'),
+        'supports' => array('title', 'thumbnail', 'custom-fields'),
         'has_archive' => true,
         'rewrite' => array('slug' => 'visa-services'),
         'show_in_rest' => true,

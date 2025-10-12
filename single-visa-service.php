@@ -25,7 +25,7 @@
     </div>
 
     <div class="visa-details-content">
-        <?php the_content();?>
+        <?php echo get_field('visa_service_details');?>
     </div>
 </div>
 
