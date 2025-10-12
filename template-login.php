@@ -4,13 +4,13 @@ Template Name: Login
 */
 get_header();
 
-// Redirect logged-in users
+// ===== Redirect logged-in users =====
 if ( is_user_logged_in() ) {
-    wp_redirect(home_url('/'));
+    wp_redirect( home_url('/dashboard/') );
     exit;
 }
 
-// Initialize error messages
+// ===== Initialize error messages =====
 $login_error = '';
 $reg_errors  = new WP_Error();
 
@@ -27,7 +27,7 @@ if ( isset($_POST['login_submit']) ) {
     if ( is_wp_error($user) ) {
         $login_error = $user->get_error_message();
     } else {
-        wp_redirect(home_url('/')); // redirect after login
+        wp_redirect( home_url('/dashboard/') ); // redirect after login
         exit;
     }
 }
@@ -68,7 +68,7 @@ if ( isset($_POST['register_submit']) ) {
             wp_set_auth_cookie($user_id);
             do_action('wp_login', $username, get_userdata($user_id));
 
-            wp_redirect(home_url('/'));
+            wp_redirect( home_url('/dashboard/') ); // redirect after registration
             exit;
         } else {
             $reg_errors->add('wp_error', $user_id->get_error_message());

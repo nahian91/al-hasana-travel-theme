@@ -359,13 +359,13 @@ $b2b_package_labels = array(
 
 register_post_type('b2b-package', array(
     'labels' => $b2b_package_labels,
-    'public' => true,                // Must be true for frontend archive & category links
+    'public' => true, // must be true for archive
     'publicly_queryable' => true,
     'show_ui' => true,
     'menu_icon' => 'dashicons-portfolio',
     'supports' => array('title', 'thumbnail', 'custom-fields'),
     'has_archive' => true,
-    'rewrite' => array('slug' => 'b2b-packagest'),
+    'rewrite' => array('slug' => 'b2b-package'),
     'show_in_rest' => true,
 ));
 
@@ -399,16 +399,16 @@ register_taxonomy('b2b_package_category', 'b2b-package', array(
         'not_found_in_trash' => __( 'No B2B Visas found in Trash', 'alhasanatheme' ),
     );
     register_post_type('b2b-visa', array(
-        'labels' => $b2b_visa_labels,
-        'public' => false, // only for logged-in users
-        'publicly_queryable' => true,
-        'show_ui' => true,
-        'menu_icon' => 'dashicons-admin-network',
-        'supports' => array('title', 'custom-fields'),
-        'has_archive' => true,
-        'rewrite' => array('slug' => 'b2b-visa'),
-        'show_in_rest' => true,
-    ));
+    'labels' => $b2b_visa_labels,
+    'public' => true, // must be true for archive
+    'publicly_queryable' => true,
+    'show_ui' => true,
+    'menu_icon' => 'dashicons-admin-network',
+    'supports' => array('title', 'custom-fields'),
+    'has_archive' => true,
+    'rewrite' => array('slug' => 'b2b-visa'),
+    'show_in_rest' => true,
+));
 
     // B2B Visa Category
     register_taxonomy('b2b_visa_category', 'b2b-visa', array(

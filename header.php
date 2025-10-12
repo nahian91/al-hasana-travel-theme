@@ -102,7 +102,7 @@
     <ul class="dropdown-menu">
         <li><a href="<?php echo esc_url( home_url('/dashboard/') ); ?>">Dashboard</a></li>
         <li><a href="<?php echo esc_url( home_url('/b2b-package/') ); ?>">All Packages</a></li>
-        <li><a href="<?php echo esc_url( home_url('/b2b-visas/') ); ?>">All Visas</a></li>
+        <li><a href="<?php echo esc_url( home_url('/b2b-visa/') ); ?>">All Visas</a></li>
         <li><a href="<?php echo wp_logout_url( home_url('/') ); ?>">Logout</a></li>
     </ul>
 <?php else : ?>

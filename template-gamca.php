@@ -23,21 +23,23 @@ get_header();
             <div class="col-md-8 mx-auto">
                 <div class="comment-form-wrap gtamca-form-single">
                     <h4>GAMCA Medical Appointment Booking</h4>
-    <form action="#" method="POST" enctype="multipart/form-data" id="tour-form">
-    <div class="row">
+
+<form action="#" method="POST" enctype="multipart/form-data" id="tour-form">
+    <div class="row g-3">
+
         <!-- Full Name -->
         <div class="col-md-4">
             <div class="form-clt">
                 <span>Full Name</span>
-                <input type="text" name="tour_fullname" placeholder="Full Name" required>
+                <input type="text" name="tour_fullname" class="form-control" placeholder="Full Name" required>
             </div>
         </div>
 
-        <!-- Date of Birth -->
+        <!-- DOB -->
         <div class="col-md-4">
             <div class="form-clt">
                 <span>Date of Birth</span>
-                <input type="text" name="tour_dob" placeholder="Date of Birth" required>
+                <input type="date" name="tour_dob" class="form-control" required>
             </div>
         </div>
 
@@ -45,7 +47,7 @@ get_header();
         <div class="col-md-4">
             <div class="form-clt">
                 <span>Gender</span>
-                <select class="nice-select w-100" name="tour_gender" required>
+                <select name="tour_gender" class="form-control nice-select" required>
                     <option value="">Select</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
@@ -57,7 +59,7 @@ get_header();
         <div class="col-md-4">
             <div class="form-clt">
                 <span>Marital Status</span>
-                <select class="nice-select w-100" name="tour_marital" required>
+                <select name="tour_marital" class="form-control nice-select" required>
                     <option value="">Select</option>
                     <option value="Single">Single</option>
                     <option value="Married">Married</option>
@@ -69,7 +71,7 @@ get_header();
         <div class="col-md-4">
             <div class="form-clt">
                 <span>Visa Type</span>
-                <select class="nice-select w-100" name="tour_visa" required>
+                <select name="tour_visa" class="form-control nice-select" required>
                     <option value="">Select</option>
                     <option value="Work Visa">Work Visa</option>
                     <option value="Family Visa">Family Visa</option>
@@ -81,7 +83,7 @@ get_header();
         <div class="col-md-4">
             <div class="form-clt">
                 <span>Position Applied For</span>
-                <select class="nice-select w-100" name="tour_position" required>
+                <select name="tour_position" class="form-control nice-select" required>
                     <option value="">Select</option>
                     <option value="Carpenter">Carpenter</option>
                     <option value="Cashier">Cashier</option>
@@ -99,7 +101,7 @@ get_header();
         <div class="col-md-6">
             <div class="form-clt">
                 <span>Phone</span>
-                <input type="text" name="tour_phone" placeholder="Phone" required>
+                <input type="text" name="tour_phone" class="form-control" placeholder="Phone" required>
             </div>
         </div>
 
@@ -107,7 +109,7 @@ get_header();
         <div class="col-md-6">
             <div class="form-clt">
                 <span>Email</span>
-                <input type="email" name="tour_email" placeholder="Email" required>
+                <input type="email" name="tour_email" class="form-control" placeholder="Email" required>
             </div>
         </div>
 
@@ -115,8 +117,8 @@ get_header();
         <div class="col-md-6">
             <div class="form-clt">
                 <span>City (যে শহরে মেডিকেল দিবে)</span>
-                <select class="nice-select w-100" name="tour_city" required>
-                    <option value="">Please select</option>
+                <select name="tour_city" class="form-control nice-select" required>
+                    <option value="">Select City</option>
                     <option value="Dhaka">Dhaka</option>
                     <option value="Chittagong">Chittagong</option>
                     <option value="Sylhet">Sylhet</option>
@@ -132,8 +134,8 @@ get_header();
         <div class="col-md-6">
             <div class="form-clt">
                 <span>Travelling Country (যে দেশে গমন করবে)</span>
-                <select class="nice-select w-100" name="tour_country" required>
-                    <option value="">Please select</option>
+                <select name="tour_country" class="form-control nice-select" required>
+                    <option value="">Select Country</option>
                     <option value="Saudi Arabia">Saudi Arabia</option>
                     <option value="Oman">Oman</option>
                     <option value="Kuwait">Kuwait</option>
@@ -147,7 +149,15 @@ get_header();
         <div class="col-md-6">
             <div class="form-clt">
                 <span>Passport Number</span>
-                <input type="text" name="tour_passport" placeholder="E.g. A11112222" required>
+                <input type="text" name="tour_passport" class="form-control" placeholder="E.g. A11112222" required>
+            </div>
+        </div>
+
+        <!-- Upload Passport -->
+        <div class="col-md-6">
+            <div class="form-clt">
+                <span>Upload Passport</span>
+                <input type="file" name="tour_passport_upload" class="form-control" accept=".jpg,.jpeg,.png,.pdf" required>
             </div>
         </div>
 
@@ -155,8 +165,8 @@ get_header();
         <div class="col-md-6">
             <div class="form-clt">
                 <span>Payment Method</span>
-                <select class="nice-select w-100" name="tour_payment_method" required>
-                    <option value="">Please select</option>
+                <select name="tour_payment_method" id="payment-method" class="form-control nice-select" required>
+                    <option value="">Select Payment</option>
                     <option value="bKash">bKash</option>
                     <option value="Nagad">Nagad</option>
                     <option value="Bank Account">Bank Account</option>
@@ -166,22 +176,65 @@ get_header();
             </div>
         </div>
 
+        <!-- Mobile/Bank Number -->
+        <div class="col-md-6">
+            <div class="form-clt">
+                <span>Send Money Here</span>
+                <input type="text" name="tour_payment_number" id="payment-number" class="form-control" placeholder="01718XXXXX" disabled required>
+            </div>
+        </div>
+
+        <!-- Mobile/Bank Number -->
+        <div class="col-md-6">
+            <div class="form-clt">
+                <span>Mobile / Bank Number</span>
+                <input type="text" name="tour_payment_number" id="payment-number" class="form-control" placeholder="Enter Mobile/Bank Number" required>
+            </div>
+        </div>
+
         <!-- Transaction Number -->
         <div class="col-md-6">
             <div class="form-clt">
                 <span>Transaction Number</span>
-                <input type="text" name="tour_transaction_number" placeholder="Enter Transaction Number" required>
+                <input type="text" name="tour_transaction_number" class="form-control" placeholder="Enter Transaction Number" required>
             </div>
+        </div>
+
+        <!-- Terms & Notice -->
+        <div class="col-md-12">
+            <p class="text-danger">বিশেষ সতর্কতাঃ সাবমিট এর পূর্বে সকল তথ্য পুণরায় যাচাই করে নিন। ভুল তথ্য সাবমিট হলে gamcaslip.com কর্তৃপক্ষ দায়ী নয়।</p>
         </div>
 
         <!-- Submit -->
         <div class="col-md-12">
-            <div class="form-clt">
-                <button type="submit" class="theme-btn w-100">Submit Tour Request</button>
-            </div>
+            <button type="submit" class="theme-btn btn w-100">Submit Tour Request</button>
         </div>
+
     </div>
 </form>
+
+<script>
+    $(document).ready(function() {
+        $('select.nice-select').niceSelect();
+
+        const paymentMethod = document.getElementById('payment-method');
+        const paymentNumber = document.getElementById('payment-number');
+
+        paymentMethod.addEventListener('change', function() {
+            if (this.value === 'Bank Account') {
+                paymentNumber.placeholder = 'Enter Bank Account Number';
+                paymentNumber.disabled = false;
+            } else if (this.value) {
+                paymentNumber.placeholder = 'Enter Mobile Number';
+                paymentNumber.disabled = false;
+            } else {
+                paymentNumber.disabled = true;
+                paymentNumber.value = '';
+            }
+        });
+    });
+</script>
+
 
 
                                                 </div>
