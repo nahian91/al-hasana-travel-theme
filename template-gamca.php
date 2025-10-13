@@ -62,7 +62,7 @@ get_header();
         <!-- Full Name -->
         <div class="col-md-6">
             <div class="form-clt">
-                <span>Full Name</span>
+                <span>Full Name (পূর্ণ নাম)</span>
                 <input type="text" name="tour_fullname" class="form-control" placeholder="Full Name" required>
             </div>
         </div>
@@ -70,7 +70,7 @@ get_header();
         <!-- Passport Number -->
         <div class="col-md-6">
             <div class="form-clt">
-                <span>Passport Number</span>
+                <span>Passport Number (পাসপোর্ট নম্বর)</span>
                 <input type="text" name="tour_passport" class="form-control" placeholder="E.g. A11112222" required>
             </div>
         </div>
@@ -78,7 +78,7 @@ get_header();
         <!-- Marital Status -->
         <div class="col-md-6">
             <div class="form-clt">
-                <span>Marital Status</span>
+                <span>Marital Status (বৈবাহিক অবস্থা)</span>
                 <select name="tour_marital" class="form-control nice-select" required>
                     <option value="">Select</option>
                     <option value="Single">Single</option>
@@ -90,7 +90,7 @@ get_header();
         <!-- Visa Type -->
         <div class="col-md-6">
             <div class="form-clt">
-                <span>Visa Type</span>
+                <span>Visa Type (ভিসার ধরণ)</span>
                 <select name="tour_visa" class="form-control nice-select" required>
                     <option value="">Select</option>
                     <option value="Work Visa">Work Visa</option>
@@ -102,7 +102,7 @@ get_header();
         <!-- Position Applied For -->
         <div class="col-md-6">
             <div class="form-clt">
-                <span>Position Applied For</span>
+                <span>Position Applied For (আবেদনকৃত পদ)</span>
                 <select name="tour_position" class="form-control nice-select" required>
                     <option value="">Select</option>
                     <option value="Carpenter">Carpenter</option>
@@ -120,7 +120,7 @@ get_header();
         <!-- Phone -->
         <div class="col-md-6">
             <div class="form-clt">
-                <span>Mobile No.</span>
+                <span>Mobile No. (মোবাইল নম্বর)</span>
                 <input type="text" name="tour_phone" class="form-control" placeholder="Phone" required>
             </div>
         </div>
@@ -128,7 +128,7 @@ get_header();
         <!-- Email -->
         <div class="col-md-6">
             <div class="form-clt">
-                <span>Email</span>
+                <span>Email (ইমেইল)</span>
                 <input type="email" name="tour_email" class="form-control" placeholder="Email" required>
             </div>
         </div>
@@ -136,7 +136,7 @@ get_header();
         <!-- Upload Passport -->
         <div class="col-md-6">
             <div class="form-clt">
-                <span>Upload Passport</span>
+                <span>Upload Passport (পাসপোর্ট আপলোড)</span>
                 <input type="file" name="tour_passport_upload" class="form-control" accept=".jpg,.jpeg,.png,.pdf" required>
             </div>
         </div>
@@ -144,7 +144,7 @@ get_header();
         <!-- Payment Method -->
         <div class="col-md-6">
             <div class="form-clt">
-                <span>Payment Method</span>
+                <span>Payment Method (পরিশোধ পদ্ধতি)</span>
                 <select name="tour_payment_method" id="payment-method" class="form-control nice-select" required>
                     <option value="">Select Payment</option>
                     <option value="bKash">bKash</option>
@@ -159,15 +159,15 @@ get_header();
         <!-- Mobile/Bank Number -->
         <div class="col-md-6">
             <div class="form-clt">
-                <span>Send Money Here</span>
-                <input type="text" name="tour_payment_number" id="payment-number" class="form-control" placeholder="01718XXXXX" disabled required>
+                <span>Send Money Here (টাকা পাঠান এখানে)</span>
+                <input type="text" name="tour_payment_number" id="payment-number" class="form-control" placeholder="+880 1777 900013" disabled required>
             </div>
         </div>
 
         <!-- Mobile/Bank Number -->
         <div class="col-md-6">
             <div class="form-clt">
-                <span>Mobile / Bank Number</span>
+                <span>Mobile / Bank Number (মোবাইল / ব্যাংক নম্বর)</span>
                 <input type="text" name="tour_payment_number" id="payment-number" class="form-control" placeholder="Enter Mobile/Bank Number"  required>
             </div>
         </div>
@@ -175,7 +175,7 @@ get_header();
         <!-- Transaction Number -->
         <div class="col-md-6">
             <div class="form-clt">
-                <span>Transaction Number</span>
+                <span>Transaction Number (লেনদেন নম্বর)</span>
                 <input type="text" name="tour_transaction_number" class="form-control" placeholder="Enter Transaction Number" required>
             </div>
         </div>
