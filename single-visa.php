@@ -82,35 +82,118 @@ $visa_price = get_field('visa_processing_price', $post_id);
             <?php endif; ?>
         </h4>
     </div>
-    <div class="comment-form-wrap">
-        <form action="#" method="POST">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-clt">
-                        <span>Full Name</span>
-                        <input type="text" name="visitor_name" placeholder="Enter name">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-clt">
-                        <span>Phone</span>
-                        <input type="text" name="visitor_phone" placeholder="Enter phone">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-clt">
-                        <span>Email</span>
-                        <input type="email" name="visitor_email" placeholder="Enter email">
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="form-clt">
-                        <button type="submit" class="theme-btn w-100">Submit Visa Request</button>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>                    
+   <div class="best-price-section mb-0 visa-category-page">
+                                <div class="hero-bottom">
+                                    <div class="row">
+                                        <div class="best-price-wrapper">
+                                            <ul class="nav">
+    <li class="nav-item wow fadeInUp" data-wow-delay=".2s">
+        <a href="#thumb1" data-bs-toggle="tab" class="nav-link active">
+            MULTIPLE ENTRY
+        </a>
+    </li>
+    <li class="nav-item wow fadeInUp" data-wow-delay=".2s">
+        <a href="#thumb2" data-bs-toggle="tab" class="nav-link">
+            SINGLE ENTRY
+        </a>
+    </li>
+</ul>
+
+                                        </div>
+
+                                       <div class="tab-content">
+
+    <!-- GAMCA Form -->
+    <div id="thumb1" class="tab-pane fade show active">
+<br>
+        <!-- Date Picker -->
+        <div class="date-picker mb-3">
+            <label for="gamca-date"><strong>Select Date:</strong></label>
+            <input type="date" id="gamca-date" name="gamca-date" min="<?php echo date('Y-m-d'); ?>" class="form-control">
+        </div>
+
+        <!-- Table -->
+        <table class="fee-table-enhanced">
+            <thead>
+                <tr>
+                    <th><i class="fa-regular fa-file-invoice-dollar"></i> Description</th>
+                    <th><i class="fa-regular fa-money-bill-wave"></i> Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><i class="fa-regular fa-passport"></i> Visa Fee</td>
+                    <td>৳ 9,150</td>
+                </tr>
+                <tr>
+                    <td><i class="fa-regular fa-hand-holding-dollar"></i> Service Fee</td>
+                    <td>৳ 2,000</td>
+                </tr>
+                <tr>
+                    <td><i class="fa-regular fa-receipt"></i> VAT <br><small>(Includes all)</small></td>
+                    <td>৳ 300</td>
+                </tr>
+                <tr class="grand-total">
+                    <td><strong><i class="fa-regular fa-calculator"></i> Grand Total</strong></td>
+                    <td><strong>৳ 11,450</strong></td>
+                </tr>
+                <tr>
+                    <td><i class="fa-regular fa-clock"></i> Processing Time</td>
+                    <td>Approx. 5-10 Working Days</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- TOUR Form -->
+    <div id="thumb2" class="tab-pane fade">
+<br>
+        <!-- Date Picker -->
+        <div class="date-picker mb-3">
+            <label for="tour-date"><strong>Select Date:</strong></label>
+            <input type="date" id="tour-date" name="tour-date" min="<?php echo date('Y-m-d'); ?>" class="form-control">
+        </div>
+
+        <!-- Table -->
+        <table class="fee-table-enhanced">
+            <thead>
+                <tr>
+                    <th><i class="fa-regular fa-file-invoice-dollar"></i> Description</th>
+                    <th><i class="fa-regular fa-money-bill-wave"></i> Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><i class="fa-regular fa-passport"></i> Visa Fee</td>
+                    <td>৳ 9,150</td>
+                </tr>
+                <tr>
+                    <td><i class="fa-regular fa-hand-holding-dollar"></i> Service Fee</td>
+                    <td>৳ 2,000</td>
+                </tr>
+                <tr>
+                    <td><i class="fa-regular fa-receipt"></i> VAT <br><small>(Includes all)</small></td>
+                    <td>৳ 300</td>
+                </tr>
+                <tr class="grand-total">
+                    <td><strong><i class="fa-regular fa-calculator"></i> Grand Total</strong></td>
+                    <td><strong>৳ 11,450</strong></td>
+                </tr>
+                <tr>
+                    <td><i class="fa-regular fa-clock"></i> Processing Time</td>
+                    <td>Approx. 5-10 Working Days</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div> <!-- .tab-content -->
+
+
+
+                                    </div>
+                                </div>
+                            </div>              
 </div>
 
                         <!-- Contact Widget -->

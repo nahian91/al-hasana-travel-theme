@@ -5003,3 +5003,80 @@ input.main-search-input::placeholder {
 .tour-design.destination-card-items .destination-content {
   flex-basis: 100%;
 }
+
+.best-price-section.mb-0.visa-category-page {
+  background: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 10px;
+}
+.best-price-section.mb-0.visa-category-page .hero-bottom .best-price-wrapper .nav .nav-item .nav-link {
+	color: #0a1f24;
+}
+.best-price-section.mb-0.visa-category-page .hero-bottom .best-price-wrapper .nav .nav-item .nav-link.active {
+	color: white;
+}
+.fee-table-enhanced {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.fee-table-enhanced th, 
+.fee-table-enhanced td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.fee-table-enhanced thead {
+  background-color: #f4f4f4;
+  color: #0B2328;
+}
+
+.fee-table-enhanced tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.fee-table-enhanced tbody tr.grand-total {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.fee-table-enhanced i {
+  margin-right: 8px;
+  color: #0B2328;
+}
+
+@media (max-width: 768px) {
+  .fee-table-enhanced, 
+  .fee-table-enhanced thead, 
+  .fee-table-enhanced tbody, 
+  .fee-table-enhanced tr, 
+  .fee-table-enhanced td, 
+  .fee-table-enhanced th {
+    display: block;
+  }
+
+  .fee-table-enhanced thead tr {
+    display: none;
+  }
+
+  .fee-table-enhanced td {
+    padding: 10px;
+    position: relative;
+    padding-left: 50%;
+    border: none;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .fee-table-enhanced td::before {
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    width: 45%;
+    white-space: nowrap;
+    font-weight: bold;
+    content: attr(data-label);
+  }
+}
