@@ -106,7 +106,8 @@
         <li><a href="<?php echo wp_logout_url( home_url('/') ); ?>">Logout</a></li>
     </ul>
 <?php else : ?>
-    <a href="<?php echo home_url('/login/'); ?>">Login / Register</a>
+    <a href="<?php echo home_url('/login/'); ?>">Login</a>
+    <a href="<?php echo home_url('/register/'); ?>">Register</a>
 <?php endif; ?>
 </li>
 
