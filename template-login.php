@@ -64,11 +64,16 @@ if ( isset($_POST['login_submit']) ) {
                         <button type="submit" name="login_submit" class="theme-btn">Login</button>
                     </div>
 
+                    <div class="form-clt mt-2">
+                        <a href="<?php echo wp_lostpassword_url( home_url('/login/') ); ?>" class="forgot-password-link">Forgot Password?</a>
+                    </div>
+
                     <p class="mt-3">Don’t have an account? <a href="<?php echo home_url('/register/'); ?>">Register here</a></p>
                 </form>
             </div>
         </div>
     </div>
 </section>
+<br><br><br>
 
 <?php get_footer(); ?>

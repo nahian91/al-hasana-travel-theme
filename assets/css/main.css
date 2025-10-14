@@ -5050,6 +5050,9 @@ input.main-search-input::placeholder {
 .best-price-section.mb-0.visa-category-page .theme-btn.w-100.text-white a {
 	color: #fff;
 }
+#visaPrice {
+	font-size: 30px;
+}
 @media (max-width: 768px) {
   .fee-table-enhanced, 
   .fee-table-enhanced thead, 
