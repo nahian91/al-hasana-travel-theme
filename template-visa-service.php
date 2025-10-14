@@ -12,6 +12,13 @@ get_header();
         <div class="row">
             <div class="page-heading">
                 <h2><?php the_title();?></h2>
+                <!-- Down Arrow SVG -->
+                <div class="scroll-down-arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="white" viewBox="0 0 24 24">
+                        <path d="M12 13.5l-5-5 1.41-1.41L12 10.67l3.59-3.58L17 8.5z"/>
+                        <path d="M12 19.5l-5-5 1.41-1.41L12 16.67l3.59-3.58L17 14.5z"/>
+                    </svg>
+                </div>
             </div>
         </div>
     </div>

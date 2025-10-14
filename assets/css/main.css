@@ -5085,3 +5085,26 @@ input.main-search-input::placeholder {
     content: attr(data-label);
   }
 }
+.page-heading {
+    position: relative;
+    text-align: center;
+    color: #fff;
+}
+
+.scroll-down-arrow {
+	margin-top: 10px;
+	display: inline-block;
+	animation: bounce 1.5s infinite;
+	border: 3px solid #ddd;
+	border-radius: 50%;
+	padding: 10px;
+	cursor: pointer;
+}
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(8px);
+    }
+}
