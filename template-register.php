@@ -13,8 +13,11 @@ if ( is_user_logged_in() ) {
 $reg_errors = new WP_Error();
 
 if ( isset($_POST['register_submit']) ) {
-    $name             = sanitize_text_field($_POST['reg_name']);
+    $agency_name      = sanitize_text_field($_POST['reg_agency_name']);
+    $agency_address   = sanitize_text_field($_POST['reg_agency_address']);
+    $full_name        = sanitize_text_field($_POST['reg_full_name']);
     $email            = sanitize_email($_POST['reg_email']);
+    $phone            = sanitize_text_field($_POST['reg_phone']);
     $password         = $_POST['reg_password'];
     $password_confirm = $_POST['reg_password_confirm'];
 
@@ -28,8 +31,17 @@ if ( isset($_POST['register_submit']) ) {
     if ( $password !== $password_confirm ) {
         $reg_errors->add('password_mismatch', 'Passwords do not match.');
     }
-    if ( empty($name) ) {
-        $reg_errors->add('empty_name', 'Name cannot be empty.');
+    if ( empty($full_name) ) {
+        $reg_errors->add('empty_name', 'Full Name cannot be empty.');
+    }
+    if ( empty($agency_name) ) {
+        $reg_errors->add('empty_agency', 'Agency Name cannot be empty.');
+    }
+    if ( empty($agency_address) ) {
+        $reg_errors->add('empty_address', 'Agency Address cannot be empty.');
+    }
+    if ( empty($phone) ) {
+        $reg_errors->add('empty_phone', 'Phone cannot be empty.');
     }
 
     // Create user
@@ -38,10 +50,15 @@ if ( isset($_POST['register_submit']) ) {
         $user_id = wp_create_user($username, $password, $email);
 
         if ( ! is_wp_error($user_id) ) {
-            // Save name
-            $name_parts = explode(' ', $name, 2);
+            // Save full name
+            $name_parts = explode(' ', $full_name, 2);
             update_user_meta($user_id, 'first_name', $name_parts[0]);
             if ( isset($name_parts[1]) ) update_user_meta($user_id, 'last_name', $name_parts[1]);
+
+            // Save other custom fields
+            update_user_meta($user_id, 'agency_name', $agency_name);
+            update_user_meta($user_id, 'agency_address', $agency_address);
+            update_user_meta($user_id, 'phone', $phone);
 
             // Auto-login
             wp_set_current_user($user_id);
@@ -81,28 +98,61 @@ if ( isset($_POST['register_submit']) ) {
                 ?>
 
                 <form method="post" class="registration-form">
-                    <div class="form-clt">
-                        <span>Name</span>
-                        <input type="text" name="reg_name" placeholder="Full Name" required>
+                    <div class="row">
+                        <div class="col-md-6">
+                        <div class="form-clt">
+                            <span>Agency Name</span>
+                            <input type="text" name="reg_agency_name" placeholder="Agency Name" required>
+                        </div>
                     </div>
 
-                    <div class="form-clt">
-                        <span>Email</span>
-                        <input type="email" name="reg_email" placeholder="Email" required>
+                    <div class="col-md-6">
+                        <div class="form-clt">
+                            <span>Agency Address</span>
+                            <input type="text" name="reg_agency_address" placeholder="Agency Address" required>
+                        </div>
                     </div>
 
-                    <div class="form-clt">
-                        <span>Password</span>
-                        <input type="password" name="reg_password" placeholder="Password" required>
+                    <div class="col-md-6">
+                        <div class="form-clt">
+                            <span>Full Name</span>
+                            <input type="text" name="reg_full_name" placeholder="Full Name" required>
+                        </div>
                     </div>
 
-                    <div class="form-clt">
-                        <span>Confirm Password</span>
-                        <input type="password" name="reg_password_confirm" placeholder="Confirm Password" required>
+                    <div class="col-md-6">
+                        <div class="form-clt">
+                            <span>Email</span>
+                            <input type="email" name="reg_email" placeholder="Email" required>
+                        </div>
                     </div>
 
-                    <div class="form-clt">
-                        <button type="submit" name="register_submit" class="theme-btn">Register</button>
+                    <div class="col-md-6">
+                        <div class="form-clt">
+                            <span>Phone</span>
+                            <input type="text" name="reg_phone" placeholder="Phone" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-clt">
+                            <span>Password</span>
+                            <input type="password" name="reg_password" placeholder="Password" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-clt">
+                            <span>Confirm Password</span>
+                            <input type="password" name="reg_password_confirm" placeholder="Confirm Password" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-clt">
+                            <button type="submit" name="register_submit" class="theme-btn">Register</button>
+                        </div>
+                    </div>
                     </div>
 
                     <p class="mt-3">Already have an account? <a href="<?php echo home_url('/login/'); ?>">Login here</a></p>
@@ -111,5 +161,5 @@ if ( isset($_POST['register_submit']) ) {
         </div>
     </div>
 </section>
-
+<br>
 <?php get_footer(); ?>

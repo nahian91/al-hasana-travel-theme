@@ -5047,7 +5047,9 @@ input.main-search-input::placeholder {
   margin-right: 8px;
   color: #0B2328;
 }
-
+.best-price-section.mb-0.visa-category-page .theme-btn.w-100.text-white a {
+	color: #fff;
+}
 @media (max-width: 768px) {
   .fee-table-enhanced, 
   .fee-table-enhanced thead, 
