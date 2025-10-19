@@ -1,8 +1,12 @@
 <?php get_header(); ?>
 
+<?php     
+$package_banner     = get_field('package_banner'); 
+?>
+
 <!-- breadcrumb-wrapper Section Start -->
 <section class="breadcrumb-wrapper fix bg-cover"
-    style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/breadcrumb/breadcrumb.jpg);">
+    style="background-image: url(<?php echo $package_banner;?>);">
     <div class="container">
         <div class="row">
             <div class="page-heading">
@@ -20,6 +24,7 @@
 </section>
 
 <?php 
+$package_banner     = get_field('package_banner'); 
 $tour_description     = get_field('description'); 
 $tour_itinerarys      = get_field('itinerarys'); 
 $tour_cost_includes   = get_field('cost_includes'); 

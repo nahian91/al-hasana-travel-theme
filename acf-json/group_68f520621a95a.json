@@ -35,6 +35,11 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "page"
+            },
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "tour"
             }
         ]
     ],
@@ -47,5 +52,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1760895347
+    "modified": 1760896702
 }
