@@ -6,6 +6,7 @@ Template Name: Tour Packages by Category
 get_header();
 
 // Get selected tour category for this page
+$page_banner = get_field('page_banner');
 $selected_cat = get_post_meta(get_the_ID(), '_tour_category', true);
 
 // Get filter values from GET
@@ -19,7 +20,7 @@ $selected_people       = isset($_GET['people']) ? intval($_GET['people']) : '';
 ?>
 
 <!-- Breadcrumb -->
-<section class="breadcrumb-wrapper fix bg-cover" style="background-image: url(<?php echo esc_url(get_template_directory_uri() . '/assets/img/breadcrumb/breadcrumb.jpg'); ?>);">
+<section class="breadcrumb-wrapper fix bg-cover" style="background-image: url(<?php echo esc_url($page_banner); ?>)">
     <div class="container">
         <div class="row">
             <div class="page-heading">

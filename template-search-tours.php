@@ -5,12 +5,14 @@ Template Name: Search Tours by Country
 
 get_header();
 
+$page_banner = get_field('page_banner');
+
 // Get selected destination from GET
 $selected_destination = isset($_GET['tour_destination']) ? sanitize_text_field($_GET['tour_destination']) : '';
 ?>
 
 <!-- Breadcrumb -->
-<section class="breadcrumb-wrapper fix bg-cover" style="background-image: url(<?php echo esc_url(get_template_directory_uri() . '/assets/img/breadcrumb/breadcrumb.jpg'); ?>);">
+<section class="breadcrumb-wrapper fix bg-cover" style="background-image: url(<?php echo $page_banner; ?>);">
     <div class="container">
         <div class="row">
             <div class="page-heading">

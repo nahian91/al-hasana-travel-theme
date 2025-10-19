@@ -4,6 +4,8 @@ Template Name: Login
 */
 get_header();
 
+$page_banner = get_field('page_banner');
+
 // Redirect logged-in users
 if ( is_user_logged_in() ) {
     wp_redirect( home_url('/dashboard/') );
@@ -31,7 +33,7 @@ if ( isset($_POST['login_submit']) ) {
 ?>
 
 <!-- Breadcrumb -->
-<section class="breadcrumb-wrapper fix bg-cover" style="background-image:url(<?php echo get_template_directory_uri();?>/assets/img/breadcrumb/breadcrumb.jpg);">
+<section class="breadcrumb-wrapper fix bg-cover" style="background-image:url(<?php echo $page_banner;?>);">
     <div class="container">
         <div class="page-heading">
             <h2>Login</h2>

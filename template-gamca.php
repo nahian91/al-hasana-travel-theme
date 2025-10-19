@@ -4,10 +4,12 @@ Template Name: Gamca
 */
 
 get_header();
+
+$page_banner = get_field('page_banner');
 ?>
 
         <!-- breadcrumb-wrappe-Section Start -->
-        <section class="breadcrumb-wrapper fix bg-cover" style="background-image: url(<?php echo get_template_directory_uri();?>/assets/img/breadcrumb/breadcrumb.jpg);">
+        <section class="breadcrumb-wrapper fix bg-cover" style="background-image: url(<?php echo $page_banner;?>);">
             <div class="container">
                 <div class="row">
                     <div class="page-heading">
