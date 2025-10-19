@@ -5108,3 +5108,25 @@ input.main-search-input::placeholder {
         transform: translateY(8px);
     }
 }
+
+.col-lg-6.btn-contact-page {
+  margin-top: 0;
+}
+.col-lg-6.btn-contact-page br {
+  display: none;
+}
+.col-lg-6.btn-contact-page input {
+  background-color: #fff;
+  border: 0;
+  color: #333;
+  padding: 10px 30px;
+  border-radius: 7px;
+  font-weight: bold;
+}
+.wpcf7-form-control-wrap {
+	position: relative;
+	width: 100%;
+}
+.wpcf7-form-control-wrap textarea{
+  height: 160px;
+}
