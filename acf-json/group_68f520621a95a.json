@@ -40,6 +40,11 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "tour"
+            },
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-search-tours.php"
             }
         ]
     ],
@@ -52,5 +57,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1760896702
+    "modified": 1760934980
 }

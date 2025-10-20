@@ -4,7 +4,7 @@ Template Name: Visa Booking
 */
 get_header();
 
-$page_banner = get_field('page_banner');
+$visa_processing_banner = get_field('visa_processing_banner');
 
 // Get data from URL
 $visa_id    = isset($_GET['visa_id']) ? intval($_GET['visa_id']) : 0;
@@ -29,7 +29,7 @@ if ($visa_id) {
 ?>
 
 <section class="breadcrumb-wrapper fix bg-cover"
-    style="background-image: url(<?php echo $page_banner;?>);">
+        style="background-image: url(<?php echo get_template_directory_uri();?>/assets/img/breadcrumb/breadcrumb.jpg);">
     <div class="container">
         <div class="row">
             <div class="page-heading">
@@ -54,11 +54,9 @@ if ($visa_id) {
             <div class="col-12 col-lg-8">
                  <div class="comment-form-wrap gtamca-form-single">
                     <h4>Visa Booking Form</h4>
-
-<form action="#" method="POST" enctype="multipart/form-data" id="tour-form">
+<?php echo do_shortcode('[contact-form-7 id="3cce645" title="Visa Booking Form"]');?>
+<!-- <form action="#" method="POST" enctype="multipart/form-data" id="tour-form">
     <div class="row g-3">
-
-    <!-- Full Name -->
         <div class="col-md-6">
             <div class="form-clt">
                 <span>First Name</span>
@@ -72,7 +70,6 @@ if ($visa_id) {
             </div>
         </div>
 
-        <!-- Email -->
         <div class="col-md-6">
             <div class="form-clt">
                 <span>Email</span>
@@ -80,7 +77,6 @@ if ($visa_id) {
             </div>
         </div>
 
-        <!-- Phone -->
         <div class="col-md-6">
             <div class="form-clt">
                 <span>Mobile No</span>
@@ -88,9 +84,6 @@ if ($visa_id) {
             </div>
         </div>
 
-        
-
-        <!-- Email -->
         <div class="col-md-6">
             <div class="form-clt">
                 <span>Address</span>
@@ -98,7 +91,6 @@ if ($visa_id) {
             </div>
         </div>   
 
-        <!-- Upload Passport -->
         <div class="col-md-6">
             <div class="form-clt">
                 <span>Upload Passport</span>
@@ -109,7 +101,7 @@ if ($visa_id) {
         <div class="col-md-6">
             <div class="date-picker mb-3">
                 <label for="gamca-date"><strong>Issue Date</strong></label>
-                <input type="date" id="gamca-date" name="gamca-date" min="<?php echo date('Y-m-d'); ?>" class="form-control" required>
+                <input type="date" id="gamca-date" name="gamca-date" min="<?php //echo date('Y-m-d'); ?>" class="form-control" required>
             </div>
         </div>
         <div class="col-md-6">
@@ -122,17 +114,15 @@ if ($visa_id) {
 
         <div class="date-picker mb-3">
             <label for="gamca-date"><strong>Expiry Date</strong></label>
-            <input type="date" id="gamca-date" name="gamca-date" min="<?php echo date('Y-m-d'); ?>" class="form-control" required>
+            <input type="date" id="gamca-date" name="gamca-date" min="<?php //echo date('Y-m-d'); ?>" class="form-control" required>
         </div>
         </div>
-
-        <!-- Submit -->
         <div class="col-md-12">
             <button type="submit" class="theme-btn btn w-100">Submit Request</button>
         </div>
 
     </div>
-</form>
+</form> -->
 
                                                 </div>
             </div>

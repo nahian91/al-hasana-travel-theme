@@ -32,11 +32,11 @@ $page_banner = get_field('page_banner');
             <div class="col-md-8 mx-auto">
                 <div class="comment-form-wrap gtamca-form-single">
                     <h4>GAMCA Medical Appointment Booking</h4>
-
-<form action="#" method="POST" enctype="multipart/form-data" id="tour-form">
+<?php echo do_shortcode('[contact-form-7 id="0e1c504" title="Gamca Booking"]');?>
+<!-- <form action="#" method="POST" enctype="multipart/form-data" id="tour-form">
     <div class="row g-3">
 
-    <!-- City -->
+    
         <div class="col-md-6">
             <div class="form-clt">
                 <span>City (যে শহরে মেডিকেল দিবে)</span>
@@ -53,7 +53,7 @@ $page_banner = get_field('page_banner');
             </div>
         </div>
 
-        <!-- Travelling Country -->
+        
         <div class="col-md-6">
             <div class="form-clt">
                 <span>Travelling Country (যে দেশে গমন করবে)</span>
@@ -68,7 +68,7 @@ $page_banner = get_field('page_banner');
             </div>
         </div>
 
-        <!-- Full Name -->
+        
         <div class="col-md-6">
             <div class="form-clt">
                 <span>Full Name (পূর্ণ নাম)</span>
@@ -76,7 +76,7 @@ $page_banner = get_field('page_banner');
             </div>
         </div>
 
-        <!-- Passport Number -->
+        
         <div class="col-md-6">
             <div class="form-clt">
                 <span>Passport Number (পাসপোর্ট নম্বর)</span>
@@ -84,7 +84,7 @@ $page_banner = get_field('page_banner');
             </div>
         </div>
 
-        <!-- Marital Status -->
+       
         <div class="col-md-6">
             <div class="form-clt">
                 <span>Marital Status (বৈবাহিক অবস্থা)</span>
@@ -96,7 +96,7 @@ $page_banner = get_field('page_banner');
             </div>
         </div>
 
-        <!-- Visa Type -->
+        
         <div class="col-md-6">
             <div class="form-clt">
                 <span>Visa Type (ভিসার ধরণ)</span>
@@ -108,7 +108,7 @@ $page_banner = get_field('page_banner');
             </div>
         </div>
 
-        <!-- Position Applied For -->
+       
         <div class="col-md-6">
             <div class="form-clt">
                 <span>Position Applied For (আবেদনকৃত পদ)</span>
@@ -126,7 +126,7 @@ $page_banner = get_field('page_banner');
             </div>
         </div>
 
-        <!-- Phone -->
+        
         <div class="col-md-6">
             <div class="form-clt">
                 <span>Mobile No. (মোবাইল নম্বর)</span>
@@ -134,7 +134,7 @@ $page_banner = get_field('page_banner');
             </div>
         </div>
 
-        <!-- Email -->
+        
         <div class="col-md-6">
             <div class="form-clt">
                 <span>Email (ইমেইল)</span>
@@ -142,7 +142,7 @@ $page_banner = get_field('page_banner');
             </div>
         </div>
 
-        <!-- Upload Passport -->
+        
         <div class="col-md-6">
             <div class="form-clt">
                 <span>Upload Passport (পাসপোর্ট আপলোড)</span>
@@ -150,7 +150,7 @@ $page_banner = get_field('page_banner');
             </div>
         </div>
 
-        <!-- Payment Method -->
+       
         <div class="col-md-6">
             <div class="form-clt">
                 <span>Payment Method (পরিশোধ পদ্ধতি)</span>
@@ -165,7 +165,7 @@ $page_banner = get_field('page_banner');
             </div>
         </div>
 
-        <!-- Mobile/Bank Number -->
+        
         <div class="col-md-6">
             <div class="form-clt">
                 <span>Send Money Here (টাকা পাঠান এখানে)</span>
@@ -173,7 +173,7 @@ $page_banner = get_field('page_banner');
             </div>
         </div>
 
-        <!-- Mobile/Bank Number -->
+        
         <div class="col-md-6">
             <div class="form-clt">
                 <span>Mobile / Bank Number (মোবাইল / ব্যাংক নম্বর)</span>
@@ -181,7 +181,7 @@ $page_banner = get_field('page_banner');
             </div>
         </div>
 
-        <!-- Transaction Number -->
+        
         <div class="col-md-6">
             <div class="form-clt">
                 <span>Transaction Number (লেনদেন নম্বর)</span>
@@ -189,18 +189,16 @@ $page_banner = get_field('page_banner');
             </div>
         </div>
 
-        <!-- Terms & Notice -->
         <div class="col-md-12">
             <p class="text-danger">বিশেষ সতর্কতাঃ সাবমিট এর পূর্বে সকল তথ্য পুণরায় যাচাই করে নিন। ভুল তথ্য সাবমিট হলে alhasanatravels.com কর্তৃপক্ষ দায়ী নয়।</p>
         </div>
 
-        <!-- Submit -->
         <div class="col-md-12">
             <button type="submit" class="theme-btn btn w-100">Submit Tour Request</button>
         </div>
 
     </div>
-</form>
+</form> -->
 
 <script>
     $(document).ready(function() {

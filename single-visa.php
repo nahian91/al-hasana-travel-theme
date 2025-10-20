@@ -1,8 +1,10 @@
 <?php get_header(); ?>
 
+<?php $visa_processing_banner = get_field('visa_processing_banner');?>
+
 <!-- breadcrumb-wrapper Section Start -->
 <section class="breadcrumb-wrapper fix bg-cover"
-    style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/breadcrumb/breadcrumb.jpg);">
+    style="background-image: url(<?php echo $visa_processing_banner;?>);">
     <div class="container">
         <div class="row">
             <div class="page-heading">

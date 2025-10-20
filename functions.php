@@ -488,3 +488,10 @@ if (WP_DEBUG) {
     });
 }
 
+// Allow [hidden field default:get_post_title] in CF7
+add_filter('wpcf7_special_mail_tags', function ($output, $name) {
+    if ('get_post_title' === $name) {
+        $output = get_the_title();
+    }
+    return $output;
+}, 10, 2);

@@ -253,9 +253,12 @@ span {
   }
 }
 .about-wrapper .about-image {
-  position: relative;
-  max-width: 350px;
-  z-index: 1;
+	position: relative;
+	max-width: 100%;
+	z-index: 1;
+	border: 1px solid #ddd;
+	padding: 3px;
+	border-radius: 7px;
 }
 @media (max-width: 1199px) {
   .about-wrapper .about-image {
@@ -5129,4 +5132,48 @@ input.main-search-input::placeholder {
 }
 .wpcf7-form-control-wrap textarea{
   height: 160px;
+}
+.plus-btn i {
+	display: none;
+}
+.theme-btn.w-100[type="submit"]:hover {
+	background-color: #0B2328;
+}
+
+.comment-form-wrap.single-tour-sidebar-booking {
+  margin-top: 0;
+}
+.comment-form-wrap.single-tour-sidebar-booking .wid-title {
+  background-color: #2b3692;
+  color: #fff;
+  padding: 12px;
+  border-radius: 7px;
+  margin-bottom: 20px;
+}
+.comment-form-wrap.single-tour-sidebar-booking .wid-title h4 {
+  color: #fff;
+  text-align: center;
+}
+.comment-form-wrap.single-tour-sidebar-booking .form-clt {
+  margin-bottom: 10px;
+}
+.comment-form-wrap.single-tour-sidebar-booking .form-clt span {
+  color: #333;
+  margin-bottom: 5px;
+}
+.comment-form-wrap.single-tour-sidebar-booking .form-clt input {
+  border: 1px solid #ddd;
+}
+.comment-form-wrap.single-tour-sidebar-booking input[type="submit"] {
+  color: #fff;
+  font-weight: 600;
+}
+.tour-widget .destination-card-items .destination-image {
+  flex-basis: 100%;
+}
+.tour-widget .destination-card-items .destination-content {
+  flex-basis: 100%;
+}
+.cta-wrapper .cta-btn .watch-btn {
+	display: none;
 }
