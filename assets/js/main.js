@@ -1,6 +1,20 @@
 (function ($) {
   "use strict";
 
+  document.addEventListener('DOMContentLoaded', function () {
+    // Open modal automatically
+    var sliderModal = new bootstrap.Modal(document.getElementById('sliderModal'));
+    sliderModal.show();
+
+    // Start carousel auto sliding
+    var myCarousel = document.querySelector('#modalCarousel');
+    var carousel = new bootstrap.Carousel(myCarousel, {
+        interval: 3000,  // Slide every 3 seconds
+        ride: 'carousel', // Autoplay
+        wrap: true        // Loop slides
+    });
+});
+
   const $documentOn = $(document);
   const $windowOn   = $(window);
 

@@ -5177,3 +5177,21 @@ input.main-search-input::placeholder {
 .cta-wrapper .cta-btn .watch-btn {
 	display: none;
 }
+
+.modal-content .btn-close {
+  position: absolute;
+  right: 0;
+  z-index: 99;
+  background-color: #fff;
+  opacity: 1;
+  color: #fff;
+  padding: 10px;
+  right: 10px;
+  top: 10px;
+}
+.modal-content {
+  padding: 0 !important;
+}
+.modal-body {
+  padding: 0;
+}
