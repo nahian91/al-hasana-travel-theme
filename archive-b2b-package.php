@@ -8,11 +8,12 @@ if ( ! is_user_logged_in() ) {
 }
 
 $current_user = wp_get_current_user();
+$page_banner = get_field('page_banner');
 ?>
 
 <!-- breadcrumb-wrapper Section Start -->
 <section class="breadcrumb-wrapper fix bg-cover"
-    style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/breadcrumb/breadcrumb.jpg);">
+    style="background-image: url(<?php echo $page_banner;?>);">
     <div class="container">
         <div class="row">
             <div class="page-heading">

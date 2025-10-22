@@ -13,7 +13,7 @@ $selected_destination = isset($_GET['tour_destination']) ? sanitize_text_field($
 
 <!-- Breadcrumb -->
 <section  class="breadcrumb-wrapper fix bg-cover"
-        style="background-image: url(<?php echo get_template_directory_uri();?>/assets/img/breadcrumb/breadcrumb.jpg);">
+        style="background-image: url(<?php echo $page_banner;?>);">
     <div class="container">
         <div class="row">
             <div class="page-heading">

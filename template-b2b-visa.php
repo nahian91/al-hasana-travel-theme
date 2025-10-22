@@ -17,7 +17,7 @@ $current_user = wp_get_current_user();
 
 <!-- breadcrumb-wrapper Section Start -->
 <section class="breadcrumb-wrapper fix bg-cover"
-    style="background-image: url(<?php $page_banner;?>);">
+    style="background-image: url(<?php echo $page_banner;?>);">
     <div class="container">
         <div class="row">
             <div class="page-heading">

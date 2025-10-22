@@ -23,44 +23,46 @@
 <?php wp_body_open(); ?>
 
 <?php 
+if ( is_front_page() ) : 
     $header_popup = get_field('header_popup', 'option');
 ?>
-
-<!-- Modal -->
-<div class="modal fade" id="sliderModal" tabindex="-1" aria-labelledby="sliderModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content">
-      <div class="modal-body">
-         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        <!-- Carousel -->
-        <div id="modalCarousel" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <?php 
-                $i = 0;
-                foreach($header_popup as $popup) {
-                    $i++;
-                    ?>
-                        <div class="carousel-item <?php if($i == 1) {echo 'active';} ?>">
-                            <img src="<?php echo $popup['header_popup_image'];?>" class="d-block w-100" alt="Slide 1">
-                            </div>
-                    <?php 
-                }
-            ?>
+    <!-- Modal -->
+    <div class="modal fade" id="sliderModal" tabindex="-1" aria-labelledby="sliderModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <!-- Carousel -->
+            <div id="modalCarousel" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <?php 
+                    $i = 0;
+                    foreach ( $header_popup as $popup ) {
+                        $i++;
+                        ?>
+                        <div class="carousel-item <?php if ( $i == 1 ) echo 'active'; ?>">
+                            <img src="<?php echo esc_url( $popup['header_popup_image'] ); ?>" class="d-block w-100" alt="Slide <?php echo esc_attr( $i ); ?>">
+                        </div>
+                        <?php 
+                    }
+                ?>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#modalCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#modalCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#modalCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#modalCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
         </div>
       </div>
     </div>
-  </div>
-</div>
-
+<?php 
+endif; 
+?>
 
 <!-- Back To Top Start -->
 <button id="back-top" class="back-to-top">

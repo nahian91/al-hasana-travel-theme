@@ -26,10 +26,12 @@ if ($visa_id) {
     $multiple_vat = get_field('multiple_visa_processing_fees_vat', $visa_id);
     $multiple_total = get_field('multiple_visa_processing_fees_total', $visa_id);
 }
+
+$page_banner = get_field('page_banner');
 ?>
 
 <section class="breadcrumb-wrapper fix bg-cover"
-        style="background-image: url(<?php echo get_template_directory_uri();?>/assets/img/breadcrumb/breadcrumb.jpg);">
+        style="background-image: url(<?php echo $page_banner;?>);">
     <div class="container">
         <div class="row">
             <div class="page-heading">

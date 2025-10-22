@@ -5195,3 +5195,27 @@ input.main-search-input::placeholder {
 .modal-body {
   padding: 0;
 }
+
+.activities-list li {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: 500;
+}
+.activities-list li i {
+  background-color: green;
+  color: #fff;
+  padding: 3px;
+  border-radius: 50%;
+  font-size: 10px;
+}
+.activities-list li i.fa-regular.fa-xmark {
+  color: #fff;
+  background-color: red;
+}
+.activities-details-wrapper .activities-details-content .faq-items .accordion-item .accordion-header .accordion-button::after {
+	display: none;
+}
+.activities-details-wrapper .activities-details-content .activities-box-wrap .activities-box-area .activities-box-item:hover .icon {
+	color: #fff;
+}
